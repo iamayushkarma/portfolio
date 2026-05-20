@@ -1,0 +1,31 @@
+@import "tailwindcss";
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  background-image:
+    radial-gradient(#000 1px, transparent 1px),
+    linear-gradient(to right, #e5e5e5 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+  background-size:
+    40px 40px,
+    100px 100px,
+    100px 100px;
+}
+@theme {
+  --color-cream: #fffdf5;
+  --color-charcoal: #333333;
+  --color-dark: #121212;
+  --color-ink: #111111;
+  --color-muted: #888888;
+
+  --color-accent-blue: rgb(59 130 246);
+  --color-accent-yellow: #e8f429;
+  --color-accent-green: #33ff57;
+
+  --shadow-brutal: 3px 3px 0 #111111;
+  --shadow-brutal-w: 3px 3px 0 #ffffff;
+  --shadow-brutal-b: 4px 4px 0 #111111;
+
+  --font-family-mono: "Courier New", Courier, monospace;
+  --font-family-sans: Inter, sans-serif;
+}
