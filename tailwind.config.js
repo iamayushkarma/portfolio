@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from "tailwindcss/plugin";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -15,6 +16,15 @@ export default {
           green: "#33FF57",
         },
       },
+      animation: {
+        ticker: "ticker 50s linear infinite",
+      },
+      keyframes: {
+        ticker: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
       boxShadow: {
         brutal: "3px 3px 0 #111111",
         "brutal-w": "3px 3px 0 #FFFFFF",
@@ -26,5 +36,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".pause-ticker": {
+          "animation-play-state": "paused",
+        },
+      });
+    }),
+  ],
 };

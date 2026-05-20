@@ -12,10 +12,15 @@
   --shadow-brutal: 3px 3px 0 #111111;
   --shadow-brutal-w: 3px 3px 0 #ffffff;
   --shadow-brutal-b: 4px 4px 0 #111111;
-  --font-family-mono: "Courier New", Courier, monospace;
-  --font-family-sans: "Space Grotesk", sans-serif; /* ← updated */
 }
-
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 @layer base {
   *,
   *::before,
