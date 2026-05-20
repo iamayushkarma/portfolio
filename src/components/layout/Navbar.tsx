@@ -1,11 +1,24 @@
-import { useState } from "react";
-import NavLogo from "../../assets/icons/nav_logo_256.png";
+import { useEffect, useState } from "react";
+import NavLogo from "../../assets/logo/nav_logo_256.png";
 import { NavLinkData } from "../../data/Navbar.data";
 import Button from "../ui/Button";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    if (menuOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header className="w-full bg-white">
@@ -46,7 +59,7 @@ function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t-2 border-ink bg-cream">
+        <div className="md:hidden border-t-2 absolute w-full z-999 border-ink bg-cream">
           <ul className="flex flex-col">
             {NavLinkData.map((link) => (
               <li key={link.href} className="border-b-2 border-ink">
@@ -59,7 +72,7 @@ function Navbar() {
                 </a>
               </li>
             ))}
-            <li>
+            <li className="border-b-black border-b-2">
               <a
                 href="#contact"
                 onClick={closeMenu}

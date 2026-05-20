@@ -68,7 +68,9 @@ function HeroSection() {
       </div>
       {showResume && <ResumeModal onClose={() => setShowResume(false)} />}
 
-      <Ticker />
+      <div className="overflow-x-hidden w-full">
+        <Ticker />
+      </div>
     </div>
   );
 }
