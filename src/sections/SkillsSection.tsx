@@ -437,7 +437,7 @@ export default function SkillsBubbles() {
   }, [initBubbles, mountBubbles, startLoop]);
 
   return (
-    <section className="skills-section">
+    <section id="skills" className="skills-section">
       <div className="skills-header">
         <h2 className="skills-heading">Skills</h2>
         <span className="skills-badge">{SKILLS.length} technologies</span>

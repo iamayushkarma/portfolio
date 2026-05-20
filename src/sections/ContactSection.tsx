@@ -1,0 +1,189 @@
+import { useState } from "react";
+
+export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("https://formspree.io/f/xpqnpoqb", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else setStatus("error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  const inputCls =
+    "w-full border-2 border-ink rounded-[2px] px-[11px] py-[9px] font-mono text-[11px] tracking-[0.04em] text-ink bg-cream outline-none placeholder:text-muted focus:shadow-brutal transition-shadow";
+
+  return (
+    <section id="contact" className="w-full py-12 px-6">
+      <div className="mx-auto max-w-[860px]">
+        {/* Card */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream"
+          style={{ boxShadow: "8px 8px 0 #111111" }}
+        >
+          {/* LEFT */}
+          <div className="flex flex-col justify-between p-10 md:p-11 border-b-2 border-ink">
+            <div>
+              <h2
+                className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5"
+                style={{ fontSize: "clamp(48px, 6vw, 68px)" }}
+              >
+                Let&apos;s
+                <br />
+                Talk
+                <br />
+                Code.
+              </h2>
+              <p className="font-mono text-[13px] leading-[1.8] text-charcoal">
+                Full-stack developer crafting production-ready web apps with
+                React, TypeScript, and Node.js. Currently open to full-time
+                roles.
+              </p>
+            </div>
+
+            <div className="mt-7 flex flex-col gap-[14px]">
+              {/* Email */}
+              <div className="flex items-center gap-4">
+                <div className="w-[42px] h-[42px] shrink-0 bg-ink rounded-[2px] flex items-center justify-center shadow-brutal">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fffdf5"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <a
+                  href="mailto:ayushkarma.dev@gmail.com"
+                  className="font-mono text-[13px] font-semibold text-ink no-underline hover:underline underline-offset-4"
+                >
+                  ayushkarma.dev@gmail.com
+                </a>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-center gap-4">
+                <div className="w-[42px] h-[42px] shrink-0 bg-ink rounded-[2px] flex items-center justify-center shadow-brutal">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fffdf5"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <span className="font-mono text-[13px] font-semibold text-ink">
+                  Remote / Earth
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex items-center p-6 md:p-7">
+            <div className="w-full border-2 border-ink rounded-[2px] bg-cream p-5 shadow-brutal-b">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-0">
+                {/* IDENTITY */}
+                <div className="mb-[13px]">
+                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                    Identity
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="NAME / COMPANY"
+                    className={inputCls}
+                  />
+                </div>
+
+                {/* COORDINATES */}
+                <div className="mb-[13px]">
+                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                    Coordinates
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="EMAIL ADDRESS"
+                    className={inputCls}
+                  />
+                </div>
+
+                {/* TRANSMISSION */}
+                <div className="mb-[13px]">
+                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                    Transmission
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="PROJECT DETAILS..."
+                    className={`${inputCls} resize-none`}
+                  />
+                </div>
+
+                {/* BUTTON */}
+                <button
+                  type="submit"
+                  disabled={status === "sending" || status === "sent"}
+                  className="w-full rounded-[2px] py-[15px] font-mono text-[12px] font-bold uppercase tracking-[0.16em] text-cream border-2 border-ink cursor-pointer transition-all shadow-brutal hover:shadow-brutal-b active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed mt-[2px]"
+                  style={{
+                    background:
+                      status === "sent" ? "#33ff57" : "rgb(59 130 246)",
+                  }}
+                >
+                  {status === "sending"
+                    ? "Transmitting..."
+                    : status === "sent"
+                      ? "Transmitted"
+                      : "Transmit Data"}
+                </button>
+
+                {status === "error" && (
+                  <p className="mt-[9px] font-mono text-[11px] text-red-500">
+                    Something went wrong. Email directly instead.
+                  </p>
+                )}
+                {status === "sent" && (
+                  <p className="mt-[9px] font-mono text-[11px] text-ink">
+                    Message received. I'll get back to you soon.
+                  </p>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

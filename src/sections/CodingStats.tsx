@@ -1048,7 +1048,7 @@ function LeetCodePanel({ data }: { data: LeetCodeData }) {
 export default function CodingStats() {
   const [gh, setGh] = useState<GitHubData | null>(null);
   const [lc, setLc] = useState<LeetCodeData | null>(null);
-  const [ghError, setGhError] = useState(false);
+  const [_ghError, setGhError] = useState(false);
 
   useEffect(() => {
     fetchGitHub()
@@ -1082,6 +1082,7 @@ export default function CodingStats() {
 
   return (
     <section
+      id="stats"
       className="px-3 py-6 md:px-6 md:py-10"
       style={{ background: "#0a0f0b" }}
     >

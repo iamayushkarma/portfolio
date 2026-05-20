@@ -317,7 +317,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function ProjectsSection() {
   return (
-    <section className="w-full bg-accent-blue">
+    <section id="work" className="w-full bg-accent-blue">
       <div className="mx-auto max-w-[1080px] px-5 py-16">
         <div className="mb-10">
           <div className="flex flex-wrap items-end justify-between gap-4">

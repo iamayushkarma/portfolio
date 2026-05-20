@@ -25,7 +25,7 @@ const experiences = [
 
 export default function ExperienceLog() {
   return (
-    <section className="min-h-screen px-6 py-16 box-border">
+    <section id="log" className="min-h-screen px-6 py-16 box-border">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
         .exp-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0d0d0d !important; }
