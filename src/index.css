@@ -14,8 +14,9 @@
   --shadow-brutal-b: 4px 4px 0 #111111;
   --font-weight-black: 700;
   --font-weight-extrabold: 700;
-  --font-family-sans: "Space Grotesk", sans-serif;
-  --font-family-mono: "JetBrains Mono", monospace;
+
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @keyframes ticker {
