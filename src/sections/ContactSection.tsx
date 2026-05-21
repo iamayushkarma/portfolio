@@ -26,10 +26,10 @@ export default function ContactSection() {
   }
 
   const inputCls =
-    "w-full border-2 border-ink rounded-[2px] px-[11px] py-[9px] font-mono text-[11px] tracking-[0.04em] text-ink bg-cream outline-none placeholder:text-muted focus:shadow-brutal transition-shadow";
+    "w-full border-2 border-ink rounded-[2px] px-[11px] py-[9px] font-sans text-[11px] tracking-[0.04em] text-ink bg-cream outline-none placeholder:text-muted focus:shadow-brutal transition-shadow";
 
   return (
-    <section id="contact" className="w-full py-12 px-6">
+    <section id="contact" className="w-full py-12 px-6 mt-6">
       <div className="mx-auto max-w-[860px]">
         {/* Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream shadow-[8px_8px_0_var(--color-ink)]">
@@ -43,9 +43,9 @@ export default function ContactSection() {
                 <br />
                 Me.
               </h2>
-              <p className="font-mono text-[13px] leading-[1.8] text-charcoal">
-                I write clean, production-ready code and actually care about
-                what ships. React · TypeScript · Node.js — full stack, zero
+              <p className="font-sans text-[13px] leading-[1.8] text-charcoal">
+                I write clean, production ready code and actually care about
+                what ships. React · TypeScript · Node.js - full stack, zero
                 hand-holding needed.
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function ContactSection() {
                 </div>
                 <a
                   href="mailto:ayushkarma.dev@gmail.com"
-                  className="font-mono text-[13px] font-semibold text-ink no-underline hover:underline underline-offset-4"
+                  className="font-sans text-[13px] font-semibold text-ink no-underline hover:underline underline-offset-4"
                 >
                   ayushkarma.dev@gmail.com
                 </a>
@@ -93,7 +93,7 @@ export default function ContactSection() {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
-                <span className="font-mono text-[13px] font-semibold text-ink">
+                <span className="font-sans text-[13px] font-semibold text-ink">
                   Indore, India
                 </span>
               </div>
@@ -105,7 +105,7 @@ export default function ContactSection() {
             <div className="w-full border-2 border-ink rounded-[2px] bg-cream p-5 shadow-brutal-b">
               <form onSubmit={handleSubmit} className="flex flex-col gap-0">
                 <div className="mb-[13px]">
-                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                  <label className="block font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
                     Identity
                   </label>
                   <input
@@ -118,7 +118,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mb-[13px]">
-                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                  <label className="block font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
                     Email
                   </label>
                   <input
@@ -131,7 +131,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mb-[13px]">
-                  <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
+                  <label className="block font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
                     Message
                   </label>
                   <textarea
@@ -146,7 +146,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "sending" || status === "sent"}
-                  className={`w-full rounded-[2px] py-[15px] font-mono text-[12px] font-bold uppercase tracking-[0.16em] text-cream border-2 border-ink cursor-pointer transition-all shadow-brutal hover:shadow-brutal-b active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed mt-[2px] ${
+                  className={`w-full rounded-[2px] py-[15px] font-sans text-[12px] font-bold uppercase tracking-[0.16em] text-cream border-2 border-ink cursor-pointer transition-all shadow-brutal hover:shadow-brutal-b active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed mt-[2px] ${
                     status === "sent"
                       ? "bg-accent-green !text-ink"
                       : "bg-accent-blue"
@@ -160,12 +160,12 @@ export default function ContactSection() {
                 </button>
 
                 {status === "error" && (
-                  <p className="mt-[9px] font-mono text-[11px] text-red-500">
+                  <p className="mt-[9px] font-sans text-[11px] text-red-500">
                     Something went wrong. Email me directly instead.
                   </p>
                 )}
                 {status === "sent" && (
-                  <p className="mt-[9px] font-mono text-[11px] text-ink">
+                  <p className="mt-[9px] font-sans text-[11px] text-ink">
                     Got it. I'll get back to you soon.
                   </p>
                 )}

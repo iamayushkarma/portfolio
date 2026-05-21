@@ -110,7 +110,7 @@ const Footer = () => {
       <div className="px-12 pb-8">
         <hr className="border-cream/[0.06] mb-5" />
         <p className="text-center text-[11px] text-muted/50 tracking-[0.1em] font-light">
-          © 2025 AYUSH.exe <span className="text-muted/30">//</span> SYSTEM_END
+          © 2026 AYUSH.exe <span className="text-muted/30">//</span> SYSTEM_END
         </p>
       </div>
     </footer>

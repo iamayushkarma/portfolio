@@ -1,26 +1,4 @@
-const experiences = [
-  {
-    title: "FRONTEND INTERN",
-    company: "CONNEX_AI",
-    period: "May 2026 - PRESENT",
-    points: [
-      "Building and maintaining frontend features using React and TypeScript for a US-based healthcare AI platform",
-      "Collaborating with cross functional teams across time zones to deliver production-ready UI components",
-      "Working remotely with a US team Casper, Wyoming",
-    ],
-  },
-  {
-    title: "OPEN SOURCE CONTRIBUTOR",
-    company: "GITHUB_COMMUNITY",
-    period: "Nov 2025 - PRESENT",
-    points: [
-      "Just getting started with open source exploring codebases and understanding contribution workflows",
-      "Made first pull requests fixing small bugs and improving documentation",
-      "Actively learning how collaborative development works in real-world projects",
-    ],
-  },
-];
-
+import { experiences } from "../data/experiences.data";
 export default function ExperienceLog() {
   return (
     <section id="log" className="min-h-screen px-6 py-16 box-border">
@@ -48,10 +26,10 @@ export default function ExperienceLog() {
               <div className="flex-1 min-w-0 bg-cream border-2 border-ink p-6 shadow-brutal-b transition-transform duration-150">
                 {/* Title + badge */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <h2 className="m-0 font-mono font-bold text-base leading-snug tracking-wide text-ink">
+                  <h2 className="m-0 font-sans font-bold text-base leading-snug tracking-wide text-ink">
                     {exp.title}
                   </h2>
-                  <span className="font-mono bg-ink text-cream text-[11px] font-semibold px-3 py-[5px] shrink-0 tracking-wide whitespace-nowrap">
+                  <span className="font-sans bg-ink text-cream text-[11px] font-semibold px-3 py-[5px] shrink-0 tracking-wide whitespace-nowrap">
                     {exp.period}
                   </span>
                 </div>
@@ -60,7 +38,7 @@ export default function ExperienceLog() {
                 <div className="border-t border-dashed border-muted/50 mb-3" />
 
                 {/* Company */}
-                <p className="font-mono m-0 mb-4 text-[13px] font-bold tracking-widest text-accent-yellow">
+                <p className="font-sans m-0 mb-4 text-[13px] font-bold tracking-widest text-accent-yellow">
                   @ {exp.company}
                 </p>
 
@@ -69,7 +47,7 @@ export default function ExperienceLog() {
                   {exp.points.map((point, j) => (
                     <li
                       key={j}
-                      className="font-mono flex gap-2 items-start text-[13px] leading-relaxed text-charcoal"
+                      className="font-sans flex gap-2 items-start text-[13px] leading-relaxed text-charcoal"
                     >
                       <span className="text-ink shrink-0 mt-[2px]">•</span>
                       <span>{point}</span>
@@ -85,8 +63,8 @@ export default function ExperienceLog() {
             <div className="w-[42px] shrink-0 flex justify-center">
               <div className="w-[14px] h-[14px] bg-ink border-2 border-ink" />
             </div>
-            <span className="font-mono text-[11px] text-muted tracking-[3px] uppercase">
-              — END OF LOG —
+            <span className="font-sans text-[11px] text-muted tracking-[3px] uppercase">
+              - END OF LOG -
             </span>
           </div>
         </div>
