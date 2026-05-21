@@ -71,7 +71,7 @@ function HeroSection() {
 
       {showResume && <ResumeModal onClose={() => setShowResume(false)} />}
 
-      <div className="overflow-x-hidden w-full mt-6 md:mt-0">
+      <div className="overflow-x-hidden w-full max-sm:absolute max-sm:bottom-15 md:mt-0">
         <Ticker />
       </div>
     </div>
