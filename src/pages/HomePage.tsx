@@ -1,11 +1,12 @@
-import AboutSection from "../sections/AboutSection";
-import CodingStats from "../components/ui/coding-stats";
-import ContactSection from "../sections/ContactSection";
-import Experience from "../sections/Experience";
+import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "../sections/HeroSection";
-import ProjectsSection from "../sections/ProjectSection";
-import SkillsSection from "../sections/SkillsSection";
-import { useEffect } from "react";
+
+const AboutSection = lazy(() => import("../sections/AboutSection"));
+const SkillsSection = lazy(() => import("../sections/SkillsSection"));
+const CodingStats = lazy(() => import("../components/ui/coding-stats"));
+const Experience = lazy(() => import("../sections/Experience"));
+const ProjectsSection = lazy(() => import("../sections/ProjectSection"));
+const ContactSection = lazy(() => import("../sections/ContactSection"));
 
 const HomePage = () => {
   useEffect(() => {
@@ -14,12 +15,14 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <CodingStats />
-      <Experience />
-      <ProjectsSection />
-      <ContactSection />
+      <Suspense fallback={null}>
+        <AboutSection />
+        <SkillsSection />
+        <CodingStats />
+        <Experience />
+        <ProjectsSection />
+        <ContactSection />
+      </Suspense>
     </>
   );
 };
