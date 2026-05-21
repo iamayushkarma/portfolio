@@ -12,7 +12,12 @@
   --shadow-brutal: 3px 3px 0 #111111;
   --shadow-brutal-w: 3px 3px 0 #ffffff;
   --shadow-brutal-b: 4px 4px 0 #111111;
+  --font-weight-black: 700;
+  --font-weight-extrabold: 700;
+  --font-family-sans: "Space Grotesk", sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
 }
+
 @keyframes ticker {
   0% {
     transform: translateX(0);
@@ -21,6 +26,7 @@
     transform: translateX(-50%);
   }
 }
+
 @layer base {
   *,
   *::before,
@@ -33,10 +39,10 @@
     scroll-behavior: smooth;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
-    --font-family-mono: "JetBrains Mono", monospace;
-    --font-family-sans: "Space Grotesk", sans-serif;
     background-color: var(--color-cream);
     color: var(--color-ink);
     line-height: 1.6;

@@ -3,8 +3,6 @@ import type { Bubble } from "../types/skill.type";
 import { SKILLS, ICON_MAP, COL_STYLES } from "../data/skill-section.data";
 
 const MINIMAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
   .skills-arena {
     background-image: radial-gradient(circle at 1px 1px, rgba(150,150,150,0.18) 1px, transparent 0);
     background-size: 26px 26px;
