@@ -6,8 +6,8 @@ function AboutSection() {
     "rounded-2xl border-2 border-ink p-5 flex flex-col transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5";
 
   return (
-    <section id="about" className="px-4 md:px-8">
-      <h2 className="font-sans! text-left md:text-center font-black text-5xl md:text-5xl lg:text-7xl uppercase tracking-tighter mb-8 pb-4">
+    <section id="about" className="px-4 md:px-8 mt-4">
+      <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-4">
         About Me
       </h2>
 
@@ -20,10 +20,10 @@ function AboutSection() {
             Full-Stack Developer
           </p>
           <div>
-            <h3 className="font-sans font-black text-6xl md:text-7xl leading-none tracking-tighter">
+            <h3 className="font-sans font-black text-[2.5rem] md:text-6xl leading-none tracking-tighter">
               AYUSH
             </h3>
-            <h3 className="font-sans font-black text-6xl md:text-7xl leading-none tracking-tighter">
+            <h3 className="font-sans font-black text-[2.5rem] md:text-6xl leading-none tracking-tighter">
               KARMA
             </h3>
           </div>
@@ -55,8 +55,10 @@ function AboutSection() {
             }
             className="flex items-center gap-1.5 font-sans font-bold text-sm text-accent-green uppercase tracking-widest cursor-pointer group w-fit bg-transparent border-none p-0"
           >
-            <span>Let's Talk</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            <div className="flex items-center gap-1 max-sm:mt-3">
+              <span>Let's Talk</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            </div>
           </button>
         </div>
 
@@ -102,7 +104,7 @@ function AboutSection() {
                 <img
                   src={s.icon}
                   alt={s.label}
-                  className="size-12 md:w-7 md:h-7 object-contain"
+                  className="size-9 md:w-7 md:h-7 object-contain"
                 />
               </div>
             ))}
