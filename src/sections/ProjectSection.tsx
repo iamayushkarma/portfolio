@@ -152,10 +152,10 @@ function ProjectCard({ project }: { project: Project }) {
 export default function ProjectsSection() {
   return (
     <section id="work" className="w-full bg-accent-blue">
-      <div className="mx-auto max-w-[1080px] px-5 py-16">
+      <div className="mx-auto max-w-270 px-5 py-16">
         <div className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="font-sans text-4xl uppercase md:text-5xl lg:text-7xl font-bold leading-none tracking-[-0.04em] mx-auto text-cream">
+            <h2 className="font-sans! text-left text-white md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl md:mx-auto uppercase tracking-tighter md:mb-8 pb-1">
               Projects
             </h2>
           </div>
