@@ -6,7 +6,7 @@ import Ticker from "../components/ui/Ticker";
 function HeroSection() {
   const [showResume, setShowResume] = useState<boolean>(false);
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh py-8 md:h-svh md:py-0">
+    <div className="flex flex-col items-center justify-center min-h-160 py-8 md:h-svh md:py-0">
       {/* Heading  */}
       <div className="relative z-10 text-center w-full px-2 sm:max-w-5xl sm:px-4">
         <h1

@@ -31,8 +31,8 @@ export default {
         "brutal-b": "4px 4px 0 #111111",
       },
       fontFamily: {
-        mono: ['"Courier New"', "Courier", "monospace"],
-        sans: ["Inter", "sans-serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
+        sans: ['"Space Grotesk"', "sans-serif"],
       },
     },
   },

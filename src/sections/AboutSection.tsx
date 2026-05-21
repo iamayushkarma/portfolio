@@ -7,7 +7,7 @@ function AboutSection() {
 
   return (
     <section id="about" className="px-4 md:px-8">
-      <h2 className="font-sans! text-center font-black text-4xl md:text-5xl lg:text-7xl uppercase tracking-tighter mb-8 pb-4">
+      <h2 className="font-sans! text-left md:text-center font-black text-5xl md:text-5xl lg:text-7xl uppercase tracking-tighter mb-8 pb-4">
         About Me
       </h2>
 
@@ -20,14 +20,14 @@ function AboutSection() {
             Full-Stack Developer
           </p>
           <div>
-            <h3 className="font-sans font-black text-5xl md:text-7xl leading-none tracking-tighter">
+            <h3 className="font-sans font-black text-6xl md:text-7xl leading-none tracking-tighter">
               AYUSH
             </h3>
-            <h3 className="font-sans font-black text-5xl md:text-7xl leading-none tracking-tighter">
+            <h3 className="font-sans font-black text-6xl md:text-7xl leading-none tracking-tighter">
               KARMA
             </h3>
           </div>
-          <p className="font-sans text-xs mt-2 opacity-70">
+          <p className="font-sans text-sm mt-2 opacity-70">
             Indore, MP · BCA '26 · ayushkarma.dev@gmail.com
           </p>
         </div>
@@ -39,11 +39,11 @@ function AboutSection() {
             Status
           </p>
           <div>
-            <p className="font-sans font-bold text-sm flex items-center gap-2">
+            <p className="font-sans font-bold text-base flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-accent-green border border-white inline-block animate-pulse" />
               Open for Work
             </p>
-            <p className="font-sans text-xs text-white/60 mt-1">
+            <p className="font-sans text-sm text-white/60 mt-1">
               Internships · Freelance · Full-time
             </p>
           </div>
@@ -53,7 +53,7 @@ function AboutSection() {
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="flex items-center gap-1.5 font-sans font-bold text-xs text-accent-green uppercase tracking-widest cursor-pointer group w-fit bg-transparent border-none p-0"
+            className="flex items-center gap-1.5 font-sans font-bold text-sm text-accent-green uppercase tracking-widest cursor-pointer group w-fit bg-transparent border-none p-0"
           >
             <span>Let's Talk</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -67,7 +67,7 @@ function AboutSection() {
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-3">
             Who I Am
           </p>
-          <p className="font-sans text-sm leading-relaxed opacity-80 flex-1">
+          <p className="font-sans text-base md:text-sm leading-relaxed opacity-80 flex-1">
             Full-stack dev who ships things that actually work - AI resume
             scorers, aviation platforms with real payment flows. I write clean
             React + TypeScript on the frontend and wire it to Node.js backends.
@@ -78,7 +78,7 @@ function AboutSection() {
             {["React", "TypeScript", "Node.js", "MongoDB", "DSA"].map((t) => (
               <span
                 key={t}
-                className="font-sans font-bold text-[10px] px-2 py-0.5 rounded-lg border-2 border-ink"
+                className="font-sans font-bold text-xs px-2.5 py-1 rounded-lg border-2 border-ink"
               >
                 {t}
               </span>
@@ -102,7 +102,7 @@ function AboutSection() {
                 <img
                   src={s.icon}
                   alt={s.label}
-                  className="w-7 h-7 object-contain"
+                  className="size-12 md:w-7 md:h-7 object-contain"
                 />
               </div>
             ))}
@@ -125,10 +125,10 @@ function AboutSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-sans text-xs font-bold leading-tight">
+                  <p className="font-sans text-sm font-bold leading-tight">
                     {c.title}
                   </p>
-                  <p className="font-sans text-[10px] text-white/40 mt-0.5">
+                  <p className="font-sans text-xs text-white/40 mt-0.5">
                     {c.sub}
                   </p>
                 </div>
@@ -154,7 +154,7 @@ function AboutSection() {
               <p className="font-sans font-black text-2xl leading-tight">
                 Tero - AI Resume Scorer
               </p>
-              <p className="font-sans text-xs text-white/70 mt-2 leading-relaxed">
+              <p className="font-sans text-sm md:text-xs text-white/70 mt-2 leading-relaxed">
                 ~95% parsing accuracy · Groq API · React + TypeScript. Boosted
                 scoring relevance by ~25 - 30%. Optimized API efficiency ~40%
                 via rate limited processing with rule based normalization.
@@ -188,10 +188,10 @@ function AboutSection() {
               />
             </div>
             <div>
-              <p className="font-sans font-bold text-lg leading-tight">
+              <p className="font-sans font-bold text-xl md:text-lg leading-tight">
                 BCA · DAVV
               </p>
-              <p className="font-sans text-xs mt-1 opacity-70 leading-relaxed">
+              <p className="font-sans text-sm md:text-xs mt-1 opacity-70 leading-relaxed">
                 Govt. Holkar Science College
                 <br />
                 Indore · CGPA 7.5 · 2023–2026
