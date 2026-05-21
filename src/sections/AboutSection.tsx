@@ -1,5 +1,13 @@
 import { Check, ArrowRight } from "lucide-react";
+import { motion, type Transition } from "motion/react";
 import { stack, certs } from "../data/about-section.data";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 
 function AboutSection() {
   const cardBase =
@@ -7,13 +15,17 @@ function AboutSection() {
 
   return (
     <section id="about" className="px-4 md:px-8 mt-4">
-      <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-4">
+      <motion.h2
+        {...fadeUp(0.05)}
+        className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-4"
+      >
         About Me
-      </h2>
+      </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3 max-w-5xl mx-auto">
         {/* Name Status */}
-        <div
+        <motion.div
+          {...fadeUp(0.1)}
           className={`${cardBase} md:col-span-8 bg-accent-yellow justify-between min-h-44 hover:shadow-brutal-b`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60">
@@ -30,9 +42,10 @@ function AboutSection() {
           <p className="font-sans text-sm mt-2 opacity-70">
             Indore, MP · BCA '26 · ayushkarma.dev@gmail.com
           </p>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          {...fadeUp(0.15)}
           className={`${cardBase} md:col-span-4 bg-ink text-white justify-between hover:shadow-brutal-w`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-40">
@@ -60,10 +73,11 @@ function AboutSection() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </div>
           </button>
-        </div>
+        </motion.div>
 
         {/* Bio */}
-        <div
+        <motion.div
+          {...fadeUp(0.2)}
           className={`${cardBase} md:col-span-5 bg-white hover:shadow-brutal justify-between`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-3">
@@ -86,9 +100,10 @@ function AboutSection() {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          {...fadeUp(0.25)}
           className={`${cardBase} md:col-span-3 bg-white hover:shadow-brutal`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-3">
@@ -109,9 +124,10 @@ function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          {...fadeUp(0.3)}
           className={`${cardBase} md:col-span-4 bg-ink text-white hover:shadow-brutal-w`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-40 mb-3">
@@ -137,10 +153,11 @@ function AboutSection() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        {/* Featured Project, Education */}
-        <div
+        {/* Featured Project */}
+        <motion.div
+          {...fadeUp(0.35)}
           className={`${cardBase} md:col-span-8 bg-accent-blue text-white justify-between hover:shadow-brutal-b`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-2">
@@ -173,9 +190,11 @@ function AboutSection() {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        {/* Education */}
+        <motion.div
+          {...fadeUp(0.4)}
           className={`${cardBase} md:col-span-4 bg-accent-yellow justify-between hover:shadow-brutal`}
         >
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-2">
@@ -200,7 +219,7 @@ function AboutSection() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
