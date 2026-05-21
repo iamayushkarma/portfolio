@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion, type Transition } from "motion/react";
 import { GitHubPanel } from "./GitHubPanel";
 import { LeetCodePanel } from "./LeetCodePanel";
 import { fetchGitHub, ghFallback } from "../../../lib/fetchGitHub";
@@ -9,6 +10,13 @@ import type {
 } from "../../../types/coding-stats.types";
 import { FaGithub } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 
 export default function CodingStats() {
   const [gh, setGh] = useState<GitHubData | null>(null);
@@ -25,15 +33,20 @@ export default function CodingStats() {
 
   return (
     <section id="stats" className="px-3 py-6 md:px-6 md:py-10 bg-[#0a0f0b]">
-      <div className="flex items-center justify-between mb-1 pb-4 md:pb-6 border-b border-[#1e3a28]">
+      {/* Header */}
+      <motion.div
+        {...fadeUp(0.05)}
+        className="flex items-center justify-between mb-1 pb-4 md:pb-6 border-b border-[#1e3a28]"
+      >
         <h2 className="font-sans md:mx-auto font-bold text-4xl md:text-5xl text-white tracking-tighter">
           CODING_<span className="text-accent-green">STATS</span>
         </h2>
-      </div>
+      </motion.div>
 
       {gh && lc ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-          <div>
+          {/* GitHub */}
+          <motion.div {...fadeUp(0.15)}>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded-[4px] bg-accent-green flex items-center justify-center shrink-0">
                 <FaGithub size={14} color="#0a0f0b" />
@@ -43,9 +56,10 @@ export default function CodingStats() {
               </span>
             </div>
             <GitHubPanel data={gh} />
-          </div>
+          </motion.div>
 
-          <div>
+          {/* LeetCode */}
+          <motion.div {...fadeUp(0.25)}>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded-[4px] bg-accent-yellow flex items-center justify-center shrink-0">
                 <SiLeetcode size={14} color="#0a0f0b" />
@@ -55,14 +69,17 @@ export default function CodingStats() {
               </span>
             </div>
             <LeetCodePanel data={lc} />
-          </div>
+          </motion.div>
         </div>
       ) : (
-        <div className="flex items-center justify-center py-20">
+        <motion.div
+          {...fadeUp(0.15)}
+          className="flex items-center justify-center py-20"
+        >
           <p className="font-mono text-[13px] text-[#4a9a5a]">
             $ loading --stats _
           </p>
-        </div>
+        </motion.div>
       )}
     </section>
   );
