@@ -102,7 +102,7 @@ export default function ContactSection() {
 
           {/* RIGHT */}
           <div className="flex items-center p-6 md:p-7">
-            <div className="w-full border-2 border-ink rounded-[2px] bg-cream p-5 shadow-brutal-b">
+            <div className="w-full border-2 border-ink rounded-[2px] bg-blue-50 p-5 shadow-brutal-b">
               <form onSubmit={handleSubmit} className="flex flex-col gap-0">
                 <div className="mb-[13px]">
                   <label className="block font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
