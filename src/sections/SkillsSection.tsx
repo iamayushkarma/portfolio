@@ -1,7 +1,14 @@
 import { useEffect, useRef, useCallback } from "react";
 import type { Bubble } from "../types/skill.type";
 import { SKILLS, ICON_MAP, COL_STYLES } from "../data/skill-section.data";
+import { motion, type Transition } from "motion/react";
 
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 const MINIMAL_CSS = `
   .skills-arena {
     background-image: radial-gradient(circle at 1px 1px, rgba(150,150,150,0.18) 1px, transparent 0);
@@ -283,25 +290,30 @@ export default function SkillsBubbles() {
   return (
     <section id="skills" className="w-full px-4 py-8 md:mt-20 mt-10">
       {/* Header */}
-      <div className="flex items-end md:justify-center justify-start gap-4 mb-6">
+      <motion.div
+        {...fadeUp(0.05)}
+        className="flex items-end md:justify-center justify-start gap-4 mb-6"
+      >
         <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-1">
           Skills
         </h2>
-      </div>
+      </motion.div>
 
       {/* Physics arena */}
-      <div
+      <motion.div
+        {...fadeUp(0.15)}
         ref={arenaRef}
         className="skills-arena w-full h-110 sm:h-123 relative overflow-hidden rounded-2xl bg-transparent select-none touch-none"
       />
 
       {/* Hint */}
-      <p
+      <motion.p
+        {...fadeUp(0.25)}
         className="text-[0.7rem] opacity-40 text-right mt-2.5"
         style={{ fontFamily: "'JetBrains Mono', monospace" }}
       >
         drag to move
-      </p>
+      </motion.p>
     </section>
   );
 }
