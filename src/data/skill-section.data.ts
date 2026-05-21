@@ -1,0 +1,67 @@
+import type { Skill } from "../types/skill.type";
+const SKILLS: Skill[] = [
+  { label: "JavaScript", r: 54, col: "amber" },
+  { label: "TypeScript", r: 50, col: "blue" },
+  { label: "React.js", r: 54, col: "blue" },
+  { label: "Node.js", r: 48, col: "green" },
+  { label: "Tailwind CSS", r: 46, col: "teal" },
+  { label: "Express.js", r: 44, col: "green" },
+  { label: "REST APIs", r: 40, col: "indigo" },
+  { label: "JWT Auth", r: 36, col: "coral" },
+  { label: "Google OAuth", r: 38, col: "blue" },
+  { label: "MongoDB", r: 42, col: "green" },
+  { label: "MySQL", r: 38, col: "amber" },
+  { label: "Firebase", r: 38, col: "coral" },
+  { label: "Redux Toolkit", r: 42, col: "purple" },
+  { label: "React Context", r: 38, col: "blue" },
+  { label: "Java", r: 50, col: "amber" },
+  { label: "DSA", r: 42, col: "purple" },
+  { label: "HTML5", r: 36, col: "coral" },
+  { label: "CSS3", r: 34, col: "blue" },
+  { label: "Git", r: 34, col: "gray" },
+  { label: "GitHub", r: 34, col: "gray" },
+  { label: "Postman", r: 32, col: "amber" },
+  { label: "Vercel", r: 32, col: "teal" },
+  { label: "Chrome APIs", r: 34, col: "indigo" },
+];
+
+const ICON_MAP: Record<string, string> = {
+  JavaScript: "devicon-javascript-plain",
+  TypeScript: "devicon-typescript-plain",
+  "React.js": "devicon-react-original",
+  "Node.js": "devicon-nodejs-plain",
+  "Tailwind CSS": "devicon-tailwindcss-plain",
+  "Express.js": "devicon-express-original",
+  "REST APIs": "devicon-fastapi-plain",
+  "JWT Auth": "devicon-jsonwebtokens-plain",
+  "Google OAuth": "devicon-google-plain",
+  MongoDB: "devicon-mongodb-plain",
+  MySQL: "devicon-mysql-plain",
+  Firebase: "devicon-firebase-plain",
+  "Redux Toolkit": "devicon-redux-original",
+  "React Context": "devicon-react-original",
+  Java: "devicon-java-plain",
+  DSA: "devicon-java-plain",
+  HTML5: "devicon-html5-plain",
+  CSS3: "devicon-css3-plain",
+  Git: "devicon-git-plain",
+  GitHub: "devicon-github-original",
+  Postman: "devicon-postman-plain",
+  Vercel: "devicon-vercel-original",
+  "Chrome APIs": "devicon-chrome-plain",
+};
+
+// Color variants: Tailwind can't dynamically build class names, so we use a
+// lookup map. These are the only styles that can't be replaced with Tailwind.
+const COL_STYLES: Record<string, string> = {
+  blue: "background:rgb(59 130 246);color:#fffdf5;border:2px solid #111;",
+  teal: "background:#e8f429;color:#111;border:2px solid #111;",
+  purple: "background:#111;color:#fffdf5;border:2px solid #111;",
+  coral: "background:#33ff57;color:#111;border:2px solid #111;",
+  green: "background:#333;color:#fffdf5;border:2px solid #111;",
+  amber: "background:#e8f429;color:#111;border:2px solid #111;",
+  pink: "background:#fffdf5;color:#111;border:2px solid #111;",
+  gray: "background:#888;color:#fffdf5;border:2px solid #111;",
+  indigo: "background:#fffdf5;color:#111;border:2px solid #111;",
+};
+export { SKILLS, ICON_MAP, COL_STYLES };

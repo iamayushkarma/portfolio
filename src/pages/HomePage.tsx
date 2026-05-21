@@ -1,5 +1,5 @@
 import AboutSection from "../sections/AboutSection";
-import CodingStats from "../sections/CodingStats";
+import CodingStats from "../components/ui/coding-stats";
 import ContactSection from "../sections/ContactSection";
 import Experience from "../sections/Experience";
 import HeroSection from "../sections/HeroSection";

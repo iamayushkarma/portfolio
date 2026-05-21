@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavLogo from "../../assets/logo/nav_logo_256.png";
-import { NavLinkData } from "../../data/Navbar.data";
+import { NavLinkData } from "../../data/navbar.data";
 import Button from "../ui/Button";
 
 function Navbar() {
