@@ -195,45 +195,50 @@ const col3: Project[] = [
 ];
 
 const tagStyles = {
-  dark: "bg-[#111] text-[#fffdf5] border-[#111]",
-  yellow: "bg-[#e8f429] text-[#111] border-[#111]",
-  green: "bg-[#33ff57] text-[#111] border-[#111]",
-  blue: "bg-blue-500 text-white border-[#111]",
-  cream: "bg-[#fffdf5] text-[#111] border-[#111]",
+  dark: "bg-ink text-cream border-ink",
+  yellow: "bg-accent-yellow text-ink border-ink",
+  green: "bg-accent-green text-ink border-ink",
+  blue: "bg-accent-blue text-cream border-ink",
+  cream: "bg-cream text-ink border-ink",
 };
 
 const statColors = {
-  blue: "text-blue-500",
-  yellow: "text-yellow-600",
-  green: "text-green-600",
-  dark: "text-[#111]",
+  blue: "text-accent-blue",
+  yellow: "text-accent-yellow",
+  green: "text-accent-green",
+  dark: "text-ink",
 };
 
 const btnStyles = {
-  dark: "bg-[#111] text-[#fffdf5] border-[#111] shadow-[3px_3px_0_#555] hover:shadow-[4px_4px_0_#555]",
+  dark: "bg-ink text-cream border-ink shadow-[3px_3px_0_#555] hover:shadow-[4px_4px_0_#555]",
   yellow:
-    "bg-[#e8f429] text-[#111] border-[#111] shadow-[3px_3px_0_#a89800] hover:shadow-[4px_4px_0_#a89800]",
+    "bg-accent-yellow text-ink border-ink shadow-[3px_3px_0_#a89800] hover:shadow-[4px_4px_0_#a89800]",
   green:
-    "bg-[#33ff57] text-[#111] border-[#111] shadow-[3px_3px_0_#1a9933] hover:shadow-[4px_4px_0_#1a9933]",
-  blue: "bg-blue-500 text-white border-[#111] shadow-[3px_3px_0_#1d4ed8] hover:shadow-[4px_4px_0_#1d4ed8]",
+    "bg-accent-green text-ink border-ink shadow-[3px_3px_0_#1a9933] hover:shadow-[4px_4px_0_#1a9933]",
+  blue: "bg-accent-blue text-cream border-ink shadow-[3px_3px_0_#1d4ed8] hover:shadow-[4px_4px_0_#1d4ed8]",
 };
 
 function ProjectCard({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
-      className="relative flex flex-col gap-3.5 rounded-[4px] border-2 border-[#111] bg-[#fffdf5] p-5 transition-all duration-150"
+      className="relative flex flex-col gap-3.5 rounded-[4px] border-2 border-ink bg-cream p-5 font-sans transition-all duration-150"
       style={{
-        boxShadow: hovered ? "6px 6px 0 #111" : "4px 4px 0 #111",
+        boxShadow: hovered
+          ? "6px 6px 0 var(--color-ink)"
+          : "var(--shadow-brutal-b)",
         transform: hovered ? "translate(-2px,-2px)" : "translate(0,0)",
-        fontFamily: "'Space Grotesk', sans-serif",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <span className="absolute right-4 top-4 font-mono text-[9px] font-semibold tracking-widest text-neutral-300">
+      {/* Number */}
+      <span className="absolute right-4 top-4 font-mono text-[9px] font-semibold tracking-widest text-muted/40">
         {project.num}
       </span>
+
+      {/* Tags */}
       <div className="flex flex-wrap items-center gap-2">
         {project.tags.map((t) => (
           <span
@@ -244,48 +249,61 @@ function ProjectCard({ project }: { project: Project }) {
           </span>
         ))}
       </div>
+
+      {/* Title + subtitle */}
       <div>
-        <h3 className="text-[20px] font-bold leading-tight tracking-[-0.03em] text-[#111]">
+        <h3 className="text-[20px] font-bold leading-tight tracking-[-0.03em] text-ink">
           {project.title}
         </h3>
-        <p className="mt-1 font-mono text-[10px] text-[#888]">
+        <p className="mt-1 font-mono text-[10px] text-muted">
           {project.subtitle}
         </p>
       </div>
+
+      {/* Description */}
       {project.desc && (
-        <p className="text-[12px] leading-[1.7] text-[#555]">{project.desc}</p>
+        <p className="text-[12px] leading-[1.7] text-charcoal">
+          {project.desc}
+        </p>
       )}
+
+      {/* Stats */}
       {project.stats && project.stats.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {project.stats.map((s) => (
             <div
               key={s.label}
-              className="flex-1 rounded-[3px] border-2 border-[#111] bg-white p-2.5 shadow-[2px_2px_0_#111]"
-              style={{ minWidth: "55px" }}
+              className="flex-1 min-w-[55px] rounded-[3px] border-2 border-ink bg-cream p-2.5 shadow-brutal"
             >
               <div
                 className={`font-sans text-[16px] font-bold leading-none ${statColors[s.color]}`}
               >
                 {s.value}
               </div>
-              <div className="mt-1 font-mono text-[9px] text-[#888]">
+              <div className="mt-1 font-mono text-[9px] text-muted">
                 {s.label}
               </div>
             </div>
           ))}
         </div>
       )}
-      <div className="h-0.5 bg-[#111]" />
+
+      {/* Divider */}
+      <div className="h-0.5 bg-ink" />
+
+      {/* Pills */}
       <div className="flex flex-wrap gap-1.5">
         {project.pills.map((p) => (
           <span
             key={p}
-            className="rounded-[2px] border-[1.5px] border-[#111] bg-transparent px-2 py-1 font-mono text-[9.5px] text-[#111]"
+            className="rounded-[2px] border-[1.5px] border-ink bg-transparent px-2 py-1 font-mono text-[9.5px] text-ink"
           >
             {p}
           </span>
         ))}
       </div>
+
+      {/* Links */}
       <div className="mt-1 flex flex-wrap gap-2">
         {project.links.map((link) =>
           link.ghost ? (
@@ -294,7 +312,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[2px] border-2 border-[#111] bg-transparent px-3.5 py-2 font-sans text-[11px] font-semibold text-[#111] transition-all hover:bg-[#111] hover:text-[#fffdf5]"
+              className="rounded-[2px] border-2 border-ink bg-transparent px-3.5 py-2 font-sans text-[11px] font-semibold text-ink transition-all hover:bg-ink hover:text-cream"
             >
               {link.label}
             </a>
@@ -320,13 +338,10 @@ export default function ProjectsSection() {
     <section id="work" className="w-full bg-accent-blue">
       <div className="mx-auto max-w-[1080px] px-5 py-16">
         <div className="mb-10">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-sans text-[clamp(36px,6vw,60px)] font-bold leading-none tracking-[-0.04em] text-[#fffdf5]">
-              Projects<span className="text-[#e8f429]">.</span>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <h2 className="font-sans text-4xl uppercase md:text-5xl lg:text-7xl font-bold leading-none tracking-[-0.04em] mx-auto text-cream">
+              Projects
             </h2>
-            {/* <button className="rounded-[2px] border-2 border-[#111] bg-[#fffdf5] px-4 py-2 font-mono text-[11px] font-bold text-[#111] shadow-[3px_3px_0_#111] transition-all hover:shadow-[4px_4px_0_#111]">
-              View all
-            </button> */}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">

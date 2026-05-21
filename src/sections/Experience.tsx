@@ -1,5 +1,3 @@
-"use client";
-
 const experiences = [
   {
     title: "FRONTEND INTERN",
@@ -26,23 +24,9 @@ const experiences = [
 export default function ExperienceLog() {
   return (
     <section id="log" className="min-h-screen px-6 py-16 box-border">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
-        .exp-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0d0d0d !important; }
-      `}</style>
-
       {/* Header */}
       <div className="text-center mb-14">
-        <h1
-          className="m-0 leading-none uppercase"
-          style={{
-            fontFamily: "'Arial Black', Impact, sans-serif",
-            fontSize: "clamp(48px, 8vw, 88px)",
-            fontWeight: 900,
-            letterSpacing: "-2px",
-            color: "#0d0d0d",
-          }}
-        >
+        <h1 className="m-0 leading-none uppercase font-sans font-black tracking-tighter text-4xl md:text-5xl lg:text-7xl text-ink">
           EXPERIENCE
         </h1>
       </div>
@@ -50,60 +34,33 @@ export default function ExperienceLog() {
       {/* Timeline */}
       <div className="relative max-w-3xl mx-auto">
         {/* Vertical line */}
-        <div
-          className="absolute top-0 bottom-0 w-[2px] bg-[#0d0d0d] z-0"
-          style={{ left: 20 }}
-        />
+        <div className="absolute top-0 bottom-0 left-5 w-[2px] bg-ink z-0" />
 
         <div className="flex flex-col gap-8">
           {experiences.map((exp, i) => (
             <div key={i} className="flex gap-7 items-start relative z-10">
               {/* Timeline dot */}
-              <div
-                className="shrink-0 flex justify-center pt-5"
-                style={{ width: 42 }}
-              >
-                <div
-                  className="w-[14px] h-[14px] shrink-0 border-2 border-[#0d0d0d]"
-                  style={{
-                    background: "#e8c900",
-                    boxShadow: "2px 2px 0 #0d0d0d",
-                  }}
-                />
+              <div className="w-[42px] shrink-0 flex justify-center pt-5">
+                <div className="w-[14px] h-[14px] shrink-0 border-2 border-ink bg-accent-yellow shadow-brutal" />
               </div>
 
               {/* Card */}
-              <div
-                className="exp-card flex-1 min-w-0 bg-white border-2 border-[#0d0d0d] p-6 transition-transform duration-150"
-                style={{ boxShadow: "4px 4px 0 #0d0d0d" }}
-              >
+              <div className="flex-1 min-w-0 bg-cream border-2 border-ink p-6 shadow-brutal-b transition-transform duration-150">
                 {/* Title + badge */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <h2
-                    className="m-0 text-[#0d0d0d] font-bold text-base leading-snug tracking-wide"
-                    style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                  >
+                  <h2 className="m-0 font-mono font-bold text-base leading-snug tracking-wide text-ink">
                     {exp.title}
                   </h2>
-                  <span
-                    className="bg-[#0d0d0d] text-white text-[11px] font-semibold px-3 py-[5px] shrink-0 tracking-wide whitespace-nowrap"
-                    style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                  >
+                  <span className="font-mono bg-ink text-cream text-[11px] font-semibold px-3 py-[5px] shrink-0 tracking-wide whitespace-nowrap">
                     {exp.period}
                   </span>
                 </div>
 
                 {/* Dashed divider */}
-                <div className="border-t border-dashed border-[#b0b0a0] mb-3" />
+                <div className="border-t border-dashed border-muted/50 mb-3" />
 
                 {/* Company */}
-                <p
-                  className="m-0 mb-4 text-[13px] font-bold tracking-widest"
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "#c8b400",
-                  }}
-                >
+                <p className="font-mono m-0 mb-4 text-[13px] font-bold tracking-widest text-accent-yellow">
                   @ {exp.company}
                 </p>
 
@@ -112,12 +69,9 @@ export default function ExperienceLog() {
                   {exp.points.map((point, j) => (
                     <li
                       key={j}
-                      className="flex gap-2 items-start text-[13px] leading-relaxed text-[#2a2a2a]"
-                      style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                      className="font-mono flex gap-2 items-start text-[13px] leading-relaxed text-charcoal"
                     >
-                      <span className="text-[#0d0d0d] shrink-0 mt-[2px]">
-                        •
-                      </span>
+                      <span className="text-ink shrink-0 mt-[2px]">•</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -128,13 +82,10 @@ export default function ExperienceLog() {
 
           {/* End of timeline */}
           <div className="flex gap-7 items-center relative z-10">
-            <div className="shrink-0 flex justify-center" style={{ width: 42 }}>
-              <div className="w-[14px] h-[14px] bg-[#0d0d0d] border-2 border-[#0d0d0d]" />
+            <div className="w-[42px] shrink-0 flex justify-center">
+              <div className="w-[14px] h-[14px] bg-ink border-2 border-ink" />
             </div>
-            <span
-              className="text-[11px] text-[#888] tracking-[3px] uppercase"
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
-            >
+            <span className="font-mono text-[11px] text-muted tracking-[3px] uppercase">
               — END OF LOG —
             </span>
           </div>

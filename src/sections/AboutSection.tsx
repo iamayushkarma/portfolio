@@ -7,12 +7,12 @@ function AboutSection() {
 
   return (
     <section id="about" className="px-4 md:px-8">
-      <h2 className="font-mono text-center font-black text-4xl md:text-5xl uppercase tracking-tighter mb-8 pb-4">
+      <h2 className="font-sans text-center font-black text-4xl md:text-5xl lg:text-7xl uppercase tracking-tighter mb-8 pb-4">
         About Me
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3 max-w-5xl mx-auto">
-        {/* ── Row 1: Name (8) + Status (4) ── */}
+        {/* Name Status */}
         <div
           className={`${cardBase} md:col-span-8 bg-accent-yellow justify-between min-h-44 hover:shadow-brutal-b`}
         >
@@ -127,7 +127,7 @@ function AboutSection() {
           </ul>
         </div>
 
-        {/* ── Row 3: Featured Project (8) + Education (4) ── */}
+        {/* Featured Project, Education */}
         <div
           className={`${cardBase} md:col-span-8 bg-accent-blue text-white justify-between hover:shadow-brutal-b`}
         >

@@ -32,27 +32,21 @@ export default function ContactSection() {
     <section id="contact" className="w-full py-12 px-6">
       <div className="mx-auto max-w-[860px]">
         {/* Card */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream"
-          style={{ boxShadow: "8px 8px 0 #111111" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream shadow-[8px_8px_0_var(--color-ink)]">
           {/* LEFT */}
-          <div className="flex flex-col justify-between p-10 md:p-11 border-b-2 border-ink">
+          <div className="flex flex-col justify-between p-10 md:p-11 border-b-2 md:border-b-0 md:border-r-2 border-ink">
             <div>
-              <h2
-                className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5"
-                style={{ fontSize: "clamp(48px, 6vw, 68px)" }}
-              >
-                Let&apos;s
+              <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[clamp(48px,6vw,68px)]">
+                Build
                 <br />
-                Talk
+                With
                 <br />
-                Code.
+                Me.
               </h2>
               <p className="font-mono text-[13px] leading-[1.8] text-charcoal">
-                Full-stack developer crafting production-ready web apps with
-                React, TypeScript, and Node.js. Currently open to full-time
-                roles.
+                I write clean, production-ready code and actually care about
+                what ships. React · TypeScript · Node.js — full stack, zero
+                hand-holding needed.
               </p>
             </div>
 
@@ -65,7 +59,7 @@ export default function ContactSection() {
                     height="17"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#fffdf5"
+                    stroke="var(--color-cream)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -90,7 +84,7 @@ export default function ContactSection() {
                     height="17"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#fffdf5"
+                    stroke="var(--color-cream)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -100,7 +94,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <span className="font-mono text-[13px] font-semibold text-ink">
-                  Remote / Earth
+                  Indore, India
                 </span>
               </div>
             </div>
@@ -110,7 +104,6 @@ export default function ContactSection() {
           <div className="flex items-center p-6 md:p-7">
             <div className="w-full border-2 border-ink rounded-[2px] bg-cream p-5 shadow-brutal-b">
               <form onSubmit={handleSubmit} className="flex flex-col gap-0">
-                {/* IDENTITY */}
                 <div className="mb-[13px]">
                   <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
                     Identity
@@ -119,15 +112,14 @@ export default function ContactSection() {
                     type="text"
                     name="name"
                     required
-                    placeholder="NAME / COMPANY"
+                    placeholder="YOUR NAME"
                     className={inputCls}
                   />
                 </div>
 
-                {/* COORDINATES */}
                 <div className="mb-[13px]">
                   <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
-                    Coordinates
+                    Email
                   </label>
                   <input
                     type="email"
@@ -138,45 +130,43 @@ export default function ContactSection() {
                   />
                 </div>
 
-                {/* TRANSMISSION */}
                 <div className="mb-[13px]">
                   <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
-                    Transmission
+                    Message
                   </label>
                   <textarea
                     name="message"
                     required
                     rows={5}
-                    placeholder="PROJECT DETAILS..."
+                    placeholder="ROLE, TEAM, OR JUST HELLO..."
                     className={`${inputCls} resize-none`}
                   />
                 </div>
 
-                {/* BUTTON */}
                 <button
                   type="submit"
                   disabled={status === "sending" || status === "sent"}
-                  className="w-full rounded-[2px] py-[15px] font-mono text-[12px] font-bold uppercase tracking-[0.16em] text-cream border-2 border-ink cursor-pointer transition-all shadow-brutal hover:shadow-brutal-b active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed mt-[2px]"
-                  style={{
-                    background:
-                      status === "sent" ? "#33ff57" : "rgb(59 130 246)",
-                  }}
+                  className={`w-full rounded-[2px] py-[15px] font-mono text-[12px] font-bold uppercase tracking-[0.16em] text-cream border-2 border-ink cursor-pointer transition-all shadow-brutal hover:shadow-brutal-b active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed mt-[2px] ${
+                    status === "sent"
+                      ? "bg-accent-green !text-ink"
+                      : "bg-accent-blue"
+                  }`}
                 >
                   {status === "sending"
-                    ? "Transmitting..."
+                    ? "Sending..."
                     : status === "sent"
-                      ? "Transmitted"
-                      : "Transmit Data"}
+                      ? "Sent ✓"
+                      : "Send Message"}
                 </button>
 
                 {status === "error" && (
                   <p className="mt-[9px] font-mono text-[11px] text-red-500">
-                    Something went wrong. Email directly instead.
+                    Something went wrong. Email me directly instead.
                   </p>
                 )}
                 {status === "sent" && (
                   <p className="mt-[9px] font-mono text-[11px] text-ink">
-                    Message received. I'll get back to you soon.
+                    Got it. I'll get back to you soon.
                   </p>
                 )}
               </form>
