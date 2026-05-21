@@ -5,10 +5,8 @@ import Footer from "./Footer";
 function Mainlayout() {
   return (
     <>
-      <div className="sticky top-0 w-full z-[99999] bg-white border-b-2">
-        <Navbar />
-      </div>
-      <main>
+      <Navbar />
+      <main className="pt-14 md:pt-16">
         <Outlet />
       </main>
       <Footer />

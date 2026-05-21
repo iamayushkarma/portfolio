@@ -10,7 +10,10 @@ const fadeUp = (delay: number) => ({
 
 export default function ExperienceLog() {
   return (
-    <section id="log" className="min-h-screen px-3 md:px-6 py-16 box-border">
+    <section
+      id="log"
+      className="min-h-screen px-3 md:px-6 py-16 box-border md:scroll-mt-3.5"
+    >
       {/* Header */}
       <motion.div {...fadeUp(0.05)} className="text-center mb-14">
         <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter">

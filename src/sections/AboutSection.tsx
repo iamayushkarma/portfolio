@@ -14,7 +14,10 @@ function AboutSection() {
     "rounded-2xl border-2 border-ink p-5 flex flex-col transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5";
 
   return (
-    <section id="about" className="px-4 md:px-8 mt-4">
+    <section
+      id="about"
+      className="px-4 md:px-8 mt-4 scroll-mt-14 md:scroll-mt-20"
+    >
       <motion.h2
         {...fadeUp(0.05)}
         className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-4"

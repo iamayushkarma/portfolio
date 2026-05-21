@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <motion.header
-      className="w-full bg-white"
+      className="w-full bg-white border-b-2 border-ink fixed top-0 left-0 z-[99999]"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -66,14 +66,15 @@ function Navbar() {
                 <a href={link.href}>/{link.label}</a>
               </motion.li>
             ))}
-            <motion.button
+            <motion.a
+              href="#contact"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7, duration: 0.3 }}
-              className="px-3 ml-3 py-1 font-mono font-bold text-sm border border-black transition-colors cursor-pointer hover:bg-accent-blue"
+              className="px-3 ml-3 py-1 font-mono hover:text-white font-bold text-sm border border-black transition-colors cursor-pointer hover:bg-accent-blue"
             >
-              <a href="#contact">contact</a>
-            </motion.button>
+              contact
+            </motion.a>
           </ul>
         </motion.div>
 
@@ -91,14 +92,15 @@ function Navbar() {
         </motion.div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             className="md:hidden fixed top-14 left-0 w-full z-[999999] border-t-2 border-ink bg-cream"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <ul className="flex flex-col">
               {NavLinkData.map((link: NavLink, index: number) => (
@@ -108,7 +110,6 @@ function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.06, duration: 0.25 }}
-                  // ← no exit prop on children, let parent handle it
                 >
                   <a
                     href={link.href}
@@ -120,7 +121,7 @@ function Navbar() {
                 </motion.li>
               ))}
               <motion.li
-                className="border-b-black border-b-2"
+                className="border-b-2 border-ink"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -131,9 +132,9 @@ function Navbar() {
                 <a
                   href="#contact"
                   onClick={closeMenu}
-                  className="block px-6 py-4 font-mono font-bold text-sm bg-accent-yellow hover:opacity-90 transition-opacity"
+                  className="block px-6 py-4 font-mono font-bold text-sm bg-accent-blue text-white hover:opacity-90 transition-opacity"
                 >
-                  HIRE ME →
+                  CONTACT →
                 </a>
               </motion.li>
             </ul>

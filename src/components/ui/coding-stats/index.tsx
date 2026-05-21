@@ -32,7 +32,10 @@ export default function CodingStats() {
   }, []);
 
   return (
-    <section id="stats" className="px-3 py-6 md:px-6 md:py-10 bg-[#0a0f0b]">
+    <section
+      id="stats"
+      className="px-3 py-6 md:px-6 md:py-10 bg-[#0a0f0b] scroll-mt-14 md:scroll-mt-16"
+    >
       {/* Header */}
       <motion.div
         {...fadeUp(0.05)}

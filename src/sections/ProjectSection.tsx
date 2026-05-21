@@ -158,7 +158,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function ProjectsSection() {
   return (
-    <section id="work" className="w-full bg-accent-blue">
+    <section id="work" className="w-full bg-accent-blue md:scroll-mt-4">
       <div className="mx-auto max-w-270 px-5 py-16">
         {/* Header */}
         <motion.div {...fadeUp(0.05)} className="mb-10">

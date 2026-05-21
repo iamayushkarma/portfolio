@@ -37,7 +37,10 @@ export default function ContactSection() {
     "w-full border-2 border-ink rounded-[2px] px-[11px] py-[9px] font-sans text-[11px] tracking-[0.04em] text-ink bg-cream outline-none placeholder:text-muted focus:shadow-brutal transition-shadow";
 
   return (
-    <section id="contact" className="w-full py-12 px-6 mt-6">
+    <section
+      id="contact"
+      className="w-full py-12 px-6 mt-6 scroll-mt-12 md:scroll-mt-16"
+    >
       <div className="mx-auto max-w-[860px]">
         {/* Card */}
         <motion.div

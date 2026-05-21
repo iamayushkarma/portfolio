@@ -288,7 +288,10 @@ export default function SkillsBubbles() {
   }, [initBubbles, mountBubbles, startLoop]);
 
   return (
-    <section id="skills" className="w-full px-4 py-8 md:mt-20 mt-10">
+    <section
+      id="skills"
+      className="w-full px-4 py-8 md:mt-20 mt-10 scroll-mt-7 md:scroll-mt-11"
+    >
       {/* Header */}
       <motion.div
         {...fadeUp(0.05)}
