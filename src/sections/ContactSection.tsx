@@ -1,4 +1,12 @@
 import { useState } from "react";
+import { motion, type Transition } from "motion/react";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 
 export default function ContactSection() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -32,11 +40,17 @@ export default function ContactSection() {
     <section id="contact" className="w-full py-12 px-6 mt-6">
       <div className="mx-auto max-w-[860px]">
         {/* Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream shadow-[8px_8px_0_var(--color-ink)]">
+        <motion.div
+          {...fadeUp(0.05)}
+          className="grid grid-cols-1 md:grid-cols-2 rounded-[3px] border-[3px] border-ink bg-cream shadow-[8px_8px_0_var(--color-ink)]"
+        >
           {/* LEFT */}
-          <div className="flex flex-col justify-between p-10 md:p-11 border-b-2 md:border-b-0 md:border-r-2 border-ink">
+          <motion.div
+            {...fadeUp(0.1)}
+            className="flex flex-col justify-between p-6 md:p-11 border-b-2 md:border-b-0 md:border-r-2 border-ink"
+          >
             <div>
-              <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[clamp(48px,6vw,68px)]">
+              <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[2.7rem] md:text-5xl lg:text-6xl">
                 Build
                 <br />
                 With
@@ -98,11 +112,11 @@ export default function ContactSection() {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT */}
-          <div className="flex items-center p-6 md:p-7">
-            <div className="w-full border-2 border-ink rounded-[2px] bg-blue-50 p-5 shadow-brutal-b">
+          <motion.div {...fadeUp(0.2)} className="flex items-center p-3 md:p-7">
+            <div className="w-full border-2 border-ink rounded-[2px] bg-blue-50 p-3 md:p-5 shadow-brutal-b">
               <form onSubmit={handleSubmit} className="flex flex-col gap-0">
                 <div className="mb-[13px]">
                   <label className="block font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-muted mb-[5px]">
@@ -171,8 +185,8 @@ export default function ContactSection() {
                 )}
               </form>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
