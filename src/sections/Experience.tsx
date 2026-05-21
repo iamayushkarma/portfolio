@@ -1,14 +1,22 @@
+import { motion, type Transition } from "motion/react";
 import { experiences } from "../data/experiences.data";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 
 export default function ExperienceLog() {
   return (
     <section id="log" className="min-h-screen px-3 md:px-6 py-16 box-border">
       {/* Header */}
-      <div className="text-center mb-14">
+      <motion.div {...fadeUp(0.05)} className="text-center mb-14">
         <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter">
           EXPERIENCE
         </h2>
-      </div>
+      </motion.div>
 
       {/* Timeline */}
       <div className="relative max-w-3xl mx-auto">
@@ -17,8 +25,9 @@ export default function ExperienceLog() {
 
         <div className="flex flex-col gap-8">
           {experiences.map((exp, i) => (
-            <div
+            <motion.div
               key={i}
+              {...fadeUp(i * 0.1)}
               className="flex gap-3 md:gap-7 items-start relative z-10"
             >
               {/* Timeline dot */}
@@ -59,18 +68,21 @@ export default function ExperienceLog() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {/* End of timeline */}
-          <div className="flex gap-3 md:gap-7 items-center relative z-10">
+          <motion.div
+            {...fadeUp(experiences.length * 0.1)}
+            className="flex gap-3 md:gap-7 items-center relative z-10"
+          >
             <div className="w-[24px] md:w-[42px] shrink-0 flex justify-center">
               <div className="w-[10px] h-[10px] md:w-[14px] md:h-[14px] bg-ink border-2 border-ink" />
             </div>
             <span className="font-sans text-[11px] text-muted tracking-[3px] uppercase">
               - END OF LOG -
             </span>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
