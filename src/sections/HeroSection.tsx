@@ -37,8 +37,7 @@ function HeroSection() {
         <p
           className="
             font-mono
-            text-sm sm:text-lg md:text-2xl
-            max-w-[92vw] sm:max-w-md md:max-w-2xl
+            text-sm sm:text-lg md:text-[1.1rem]92vw] sm:max-w-md md:max-w-2xl
             leading-5 sm:leading-7 md:leading-9
             bg-accent-blue text-white text-center
             mx-auto mb-4 sm:mb-6 md:mb-10
@@ -60,12 +59,12 @@ function HeroSection() {
         <Button
           label="Explore"
           to="#skills"
-          className="py-1.5 px-5 text-lg bg-black! hover:bg-accent-blue! text-white md:py-3 md:px-8 md:text-2xl!"
+          className="py-1.5 px-5 text-lg bg-black! hover:bg-accent-blue! text-white md:py-3 md:px-8  md:text-[1.1rem]!"
         />
         <Button
           label="View Resume"
           onClick={() => setShowResume(true)}
-          className="py-1.5 px-5 text-lg hover:bg-accent-blue! hover:text-white md:py-3 md:px-8 md:text-2xl!"
+          className="py-1.5 px-5 text-lg hover:bg-accent-blue! hover:text-white md:py-3 md:px-8  md:text-[1.1rem]!"
         />
       </div>
 
