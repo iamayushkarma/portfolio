@@ -1,9 +1,19 @@
+import { motion, type Transition } from "motion/react";
 import { navLinks, socials } from "../../data/footer.data";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
+
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-dark border-t-4 md:border-t-[6px] border-accent-blue text-cream font-sans">
       <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-x-16 gap-y-10 px-6 md:px-12 pt-14 pb-8">
-        <div>
+        {/* Brand */}
+        <motion.div {...fadeUp(0.05)}>
           <h2 className="font-sans text-3xl font-bold tracking-tight mb-4 flex items-end gap-[2px]">
             AYUSH KARMA
           </h2>
@@ -24,9 +34,10 @@ const Footer = () => {
               +91 74688 19111 · Indore, MP
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="min-w-[160px]">
+        {/* Routes */}
+        <motion.div {...fadeUp(0.15)} className="min-w-[160px]">
           <p className="text-xs font-medium text-accent-blue uppercase tracking-[0.12em] mb-5">
             Routes
           </p>
@@ -45,9 +56,10 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="min-w-[180px]">
+        {/* Socials */}
+        <motion.div {...fadeUp(0.25)} className="min-w-[180px]">
           <p className="text-xs font-medium text-accent-blue uppercase tracking-[0.12em] mb-5">
             Socials
           </p>
@@ -66,15 +78,16 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="px-6 md:px-12 pb-8">
+      {/* Bottom bar */}
+      <motion.div {...fadeUp(0.3)} className="px-6 md:px-12 pb-8">
         <hr className="border-cream/[0.06] mb-5" />
         <p className="text-center text-xs text-muted/50 tracking-[0.1em] font-light">
           © 2026 AYUSH.exe <span className="text-muted/30">//</span> SYSTEM_END
         </p>
-      </div>
+      </motion.div>
     </footer>
   );
 };
