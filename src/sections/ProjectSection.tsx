@@ -1,7 +1,14 @@
 import { useState } from "react";
 import type { Project } from "../types/project.type";
+import { motion, type Transition } from "motion/react";
 import { col1, col2, col3 } from "../data/project-section.data";
 
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.1 },
+  transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
+});
 const tagStyles = {
   dark: "bg-ink text-cream border-ink",
   yellow: "bg-accent-yellow text-ink border-ink",
@@ -153,25 +160,38 @@ export default function ProjectsSection() {
   return (
     <section id="work" className="w-full bg-accent-blue">
       <div className="mx-auto max-w-270 px-5 py-16">
-        <div className="mb-10">
+        {/* Header */}
+        <motion.div {...fadeUp(0.05)} className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="font-sans! text-left text-white md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl md:mx-auto uppercase tracking-tighter md:mb-8 pb-1">
               Projects
             </h2>
           </div>
-        </div>
+        </motion.div>
+
         <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
-          <div className="flex flex-col gap-3.5 lg:pt-14">
+          {/* Col 1 */}
+          <motion.div
+            {...fadeUp(0.1)}
+            className="flex flex-col gap-3.5 lg:pt-14"
+          >
             {col1.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
-          </div>
-          <div className="flex flex-col gap-3.5">
+          </motion.div>
+
+          {/* Col 2 */}
+          <motion.div {...fadeUp(0.2)} className="flex flex-col gap-3.5">
             {col2.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
-          </div>
-          <div className="flex flex-col gap-3.5 sm:col-span-2 sm:flex-row sm:flex-wrap lg:col-span-1 lg:flex-col lg:pt-14">
+          </motion.div>
+
+          {/* Col 3 */}
+          <motion.div
+            {...fadeUp(0.3)}
+            className="flex flex-col gap-3.5 sm:col-span-2 sm:flex-row sm:flex-wrap lg:col-span-1 lg:flex-col lg:pt-14"
+          >
             {col3.map((p) => (
               <div
                 key={p.id}
@@ -180,7 +200,7 @@ export default function ProjectsSection() {
                 <ProjectCard project={p} />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
