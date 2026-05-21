@@ -281,10 +281,10 @@ export default function SkillsBubbles() {
   }, [initBubbles, mountBubbles, startLoop]);
 
   return (
-    <section id="skills" className="w-full px-4 py-8 md:mt-20">
+    <section id="skills" className="w-full px-4 py-8 md:mt-20 mt-10">
       {/* Header */}
-      <div className="flex items-end justify-center gap-4 mb-6">
-        <h2 className="font-extrabold uppercase font-sans tracking-tighter text-4xl md:text-5xl lg:text-7xl leading-none ">
+      <div className="flex items-end md:justify-center justify-start gap-4 mb-6">
+        <h2 className="font-sans! text-left md:text-center font-black text-[2.8rem] md:text-5xl lg:text-7xl uppercase tracking-tighter md:mb-8 pb-1">
           Skills
         </h2>
       </div>
@@ -292,7 +292,7 @@ export default function SkillsBubbles() {
       {/* Physics arena */}
       <div
         ref={arenaRef}
-        className="skills-arena w-full h-140 sm:h-123 relative overflow-hidden rounded-2xl bg-transparent select-none touch-none"
+        className="skills-arena w-full h-110 sm:h-123 relative overflow-hidden rounded-2xl bg-transparent select-none touch-none"
       />
 
       {/* Hint */}
@@ -300,7 +300,7 @@ export default function SkillsBubbles() {
         className="text-[0.7rem] opacity-40 text-right mt-2.5"
         style={{ fontFamily: "'JetBrains Mono', monospace" }}
       >
-        drag to toss
+        drag to move
       </p>
     </section>
   );
