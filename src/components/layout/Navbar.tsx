@@ -6,6 +6,7 @@ import Button from "../ui/Button";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const closeMenu = () => setMenuOpen(false);
+
   useEffect(() => {
     if (menuOpen) {
       document.documentElement.style.overflow = "hidden";
@@ -57,9 +58,9 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — fixed so it escapes the sticky wrapper's stacking context */}
       {menuOpen && (
-        <div className="md:hidden border-t-2 absolute w-full z-999 border-ink bg-cream">
+        <div className="md:hidden fixed top-14 left-0 w-full z-[999999] border-t-2 border-ink bg-cream">
           <ul className="flex flex-col">
             {NavLinkData.map((link) => (
               <li key={link.href} className="border-b-2 border-ink">

@@ -5,7 +5,7 @@ import Footer from "./Footer";
 function Mainlayout() {
   return (
     <>
-      <div className="sticky top-0 w-full z-99999 flex items-center sm:justify-center sm:p-1 bg-white border-b-2">
+      <div className="sticky top-0 w-full z-[99999] bg-white border-b-2">
         <Navbar />
       </div>
       <main>

@@ -6,9 +6,9 @@ import Ticker from "../components/ui/Ticker";
 function HeroSection() {
   const [showResume, setShowResume] = useState<boolean>(false);
   return (
-    <div className="flex flex-col items-center justify-center h-svh">
+    <div className="flex flex-col items-center justify-center min-h-svh py-8 md:h-svh md:py-0">
       {/* Heading  */}
-      <div className="relative z-10 text-center max-w-5xl px-4">
+      <div className="relative z-10 text-center w-full px-2 sm:max-w-5xl sm:px-4">
         <h1
           className="
           text-[18vw]
@@ -18,7 +18,7 @@ function HeroSection() {
           xl:text-[9vw]
           2xl:text-[8vw]
           leading-[0.85]
-          font-black uppercase tracking-tighter mb-6
+          font-black uppercase tracking-tighter mb-4 sm:mb-6
         "
         >
           FULL STACK
@@ -31,18 +31,19 @@ function HeroSection() {
           </span>
         </h1>
       </div>
+
       {/* Info Paragraph */}
-      <div className="px-4 py-2">
+      <div className="w-full px-4 py-2">
         <p
           className="
             font-mono
-            text-base sm:text-lg md:text-2xl
-            max-w-xs sm:max-w-md md:max-w-2xl
-            leading-6 sm:leading-7 md:leading-9
+            text-sm sm:text-lg md:text-2xl
+            max-w-[92vw] sm:max-w-md md:max-w-2xl
+            leading-5 sm:leading-7 md:leading-9
             bg-accent-blue text-white text-center
-            mx-auto mb-6 md:mb-10
+            mx-auto mb-4 sm:mb-6 md:mb-10
             border-2 border-black
-            px-4 py-3 md:py-4
+            px-3 py-2 sm:px-4 sm:py-3 md:py-4
             shadow-brutal reveal active
         "
         >
@@ -53,7 +54,8 @@ function HeroSection() {
           </span>
         </p>
       </div>
-      {/* CAT */}
+
+      {/* CTA */}
       <div className="flex gap-3 md:gap-6">
         <Button
           label="Explore"
@@ -63,12 +65,13 @@ function HeroSection() {
         <Button
           label="View Resume"
           onClick={() => setShowResume(true)}
-          className="py-1.5 px-5 text-lg hover:bg-accent-blue! hover:text-white  md:py-3 md:px-8 md:text-2xl!"
+          className="py-1.5 px-5 text-lg hover:bg-accent-blue! hover:text-white md:py-3 md:px-8 md:text-2xl!"
         />
       </div>
+
       {showResume && <ResumeModal onClose={() => setShowResume(false)} />}
 
-      <div className="overflow-x-hidden w-full">
+      <div className="overflow-x-hidden w-full mt-6 md:mt-0">
         <Ticker />
       </div>
     </div>
