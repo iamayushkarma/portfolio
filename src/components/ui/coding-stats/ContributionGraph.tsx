@@ -55,7 +55,7 @@ export function ContributionGraph({
                 <div
                   key={di}
                   title={getTooltip(cell)}
-                  className="w-full transition-transform duration-100 hover:scale-150 cursor-default rounded-[2px]"
+                  className="w-full transition-transform duration-100 rounded-[.5px] md:rounded-[2px] hover:scale-[1.2] cursor-default"
                   style={{
                     aspectRatio: "1",
                     background: palette[getLevel(cell)],
