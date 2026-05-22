@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Project } from "../types/project.type";
 import { motion, type Transition } from "motion/react";
 import { col1, col2, col3 } from "../data/project-section.data";
@@ -157,8 +157,35 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function ProjectsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+      section.style.backgroundPosition = `${moveX}px ${moveY}px, ${moveX}px ${moveY}px`;
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    return () => section.removeEventListener("mousemove", handleMouseMove);
+  }, []);
   return (
-    <section id="work" className="w-full bg-accent-blue md:scroll-mt-4">
+    <section
+      id="work"
+      ref={sectionRef}
+      className="w-full bg-accent-blue md:scroll-mt-4"
+      style={{
+        backgroundImage: `
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)
+  `,
+        backgroundSize: `100px 100px`,
+        backgroundPosition: `0 -2px`,
+      }}
+    >
       <div className="mx-auto max-w-270 px-5 py-16">
         {/* Header */}
         <motion.div {...fadeUp(0.05)} className="mb-10">
