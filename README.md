@@ -36,12 +36,12 @@ src/
 
 ## Sections
 
-- **Hero** — Introduction with animated entry
-- **About** — Background and a brief overview
-- **Skills** — Visual skill bubbles across 23+ technologies
-- **Projects** — Showcase of 6 projects with tags, stats, and links
-- **Experience** — Work and open source experience timeline
-- **Contact** — Contact form and social links
+- **Hero** - Introduction with animated entry
+- **About** - Background and a brief overview
+- **Skills** - Visual skill bubbles across 23+ technologies
+- **Projects** - Showcase of 6 projects with tags, stats, and links
+- **Experience** - Work and open source experience timeline
+- **Contact** - Contact form and social links
 
 ---
 
