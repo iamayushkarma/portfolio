@@ -90,8 +90,8 @@ function AboutSection() {
             Full-stack dev who ships things that actually work - AI resume
             scorers, aviation platforms with real payment flows. I write clean
             React + TypeScript on the frontend and wire it to Node.js backends.
-            Strong DSA fundamentals, bias for shipping, habit of making every
-            project better than the brief asked for.
+            Strong DSA fundamentals, I ship fast and always leave the project
+            better than I found it.
           </p>
           <div className="flex flex-wrap gap-1.5 mt-4">
             {["React", "TypeScript", "Node.js", "MongoDB", "DSA"].map((t) => (
