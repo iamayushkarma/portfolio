@@ -18,7 +18,7 @@ const Footer = () => {
             AYUSH KARMA
           </h2>
           <p className="text-sm text-muted leading-[1.85] max-w-xs font-light">
-            Software engineer passionate about
+            Full Stack Developer passionate about
             <br />
             building scalable products and
             <br />
