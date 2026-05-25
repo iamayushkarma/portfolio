@@ -18,13 +18,11 @@ const Footer = () => {
             AYUSH KARMA
           </h2>
           <p className="text-sm text-muted leading-[1.85] max-w-xs font-light">
-            Full stack developer building
+            Software engineer passionate about
             <br />
-            production-ready web apps with React,
+            building scalable products and
             <br />
-            TypeScript & Node.js. No cookies, no
-            <br />
-            trackers, just code.
+            growing through every line of code.
           </p>
           <div className="mt-5 space-y-[5px]">
             <p className="text-xs text-muted/60 font-light">
