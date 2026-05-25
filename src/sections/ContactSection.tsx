@@ -54,16 +54,15 @@ export default function ContactSection() {
           >
             <div>
               <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[2.7rem] md:text-5xl lg:text-6xl">
-                Build
+                Got A
                 <br />
-                With
+                Role
                 <br />
-                Me.
+                For Me?
               </h2>
               <p className="font-sans text-[13px] leading-[1.8] text-charcoal">
-                I write clean, production ready code and actually care about
-                what ships. React · TypeScript · Node.js - full stack, zero
-                hand-holding needed.
+                Have something interesting in mind? Tell me about it and let's
+                see where it goes.
               </p>
             </div>
 
