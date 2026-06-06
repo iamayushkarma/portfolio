@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="relative overflow-hidden bg-dark border-t-4 md:border-t-[6px] border-accent-blue text-cream font-sans">
       <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-x-16 gap-y-10 px-6 md:px-12 pt-14 pb-8">
         {/* Brand */}
-        <motion.div {...fadeUp(0.05)}>
+        <motion.div {...fadeUp(0.06)}>
           <h2 className="font-sans text-3xl font-bold tracking-tight mb-4 flex items-end gap-[2px]">
             AYUSH KARMA
           </h2>
