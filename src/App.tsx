@@ -3,7 +3,7 @@ import Mainlayout from "./components/layout/Mainlayout";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   useEffect(() => {
