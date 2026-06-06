@@ -3,6 +3,7 @@ import Mainlayout from "./components/layout/Mainlayout";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const App = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <>
+      <Analytics />
       <BrowserRouter>
         <Routes>
           <Route element={<Mainlayout />}>
