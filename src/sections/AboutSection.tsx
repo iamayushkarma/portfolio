@@ -166,25 +166,37 @@ function AboutSection() {
           <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-2">
             Featured Project
           </p>
+
           <div className="flex items-start gap-4">
             <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
               <span className="font-sans font-black text-2xl text-white">
-                T
+                H
               </span>
             </div>
+
             <div>
               <p className="font-sans font-black text-2xl leading-tight">
-                Tero - AI Resume Scorer
+                HookLens - Webhook Inspector
               </p>
+
               <p className="font-sans text-sm md:text-xs text-white/70 mt-2 leading-relaxed">
-                ~95% parsing accuracy · Groq API · React + TypeScript. Boosted
-                scoring relevance by ~25 - 30%. Optimized API efficiency ~40%
-                via rate limited processing with rule based normalization.
+                Multi-tenant SaaS platform for webhook inspection and debugging
+                with real-time request streaming via Socket.io, request replay
+                engine, RBAC-based workspaces, and AI-powered payload
+                explanations using Groq.
               </p>
             </div>
           </div>
+
           <div className="flex flex-wrap gap-1.5 mt-4">
-            {["React", "TypeScript", "Groq API", "Context API"].map((t) => (
+            {[
+              "React",
+              "TypeScript",
+              "Node.js",
+              "MongoDB",
+              "Socket.io",
+              "Groq API",
+            ].map((t) => (
               <span
                 key={t}
                 className="font-sans font-bold text-xs px-2.5 py-1 rounded-lg border border-white/40 text-white/90 bg-white/10"
