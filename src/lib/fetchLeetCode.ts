@@ -40,20 +40,67 @@ function calendarToGrid(calendar: Record<string, number>): number[][] {
   );
 }
 
+async function lcGraphQL(query: string, variables: Record<string, unknown>) {
+  const res = await fetch("/lc-api/graphql", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query, variables }),
+  });
+  if (!res.ok) throw new Error(`GraphQL ${res.status}`);
+  return res.json();
+}
+
 export async function fetchLeetCode(): Promise<LeetCodeData> {
-  const [solvedRes, profileRes, calendarRes] = await Promise.all([
-    fetch(`https://alfa-leetcode-api.onrender.com/${LC_USERNAME}/solved`),
-    fetch(`https://alfa-leetcode-api.onrender.com/${LC_USERNAME}`),
-    fetch(`https://alfa-leetcode-api.onrender.com/userProfile/${LC_USERNAME}`),
+  const statsQuery = `
+    query getUserStats($username: String!) {
+      matchedUser(username: $username) {
+        profile { ranking }
+        submitStats {
+          acSubmissionNum {
+            difficulty
+            count
+          }
+        }
+      }
+      allQuestionsCount {
+        difficulty
+        count
+      }
+    }
+  `;
+
+  const calendarQuery = `
+    query getUserCalendar($username: String!) {
+      matchedUser(username: $username) {
+        userCalendar {
+          submissionCalendar
+        }
+      }
+    }
+  `;
+
+  const [statsData, calendarData] = await Promise.all([
+    lcGraphQL(statsQuery, { username: LC_USERNAME }),
+    lcGraphQL(calendarQuery, { username: LC_USERNAME }),
   ]);
 
-  const solved = await solvedRes.json();
-  const profile = await profileRes.json();
-  const calendarData = await calendarRes.json();
+  const user = statsData?.data?.matchedUser;
+  const allQ = statsData?.data?.allQuestionsCount ?? [];
+
+  const getCount = (diff: string) =>
+    user?.submitStats?.acSubmissionNum?.find(
+      (d: { difficulty: string; count: number }) => d.difficulty === diff,
+    )?.count ?? 0;
+
+  const getTotal = (diff: string) =>
+    allQ.find(
+      (d: { difficulty: string; count: number }) => d.difficulty === diff,
+    )?.count ?? 0;
 
   let submissions = mockLeetCode().submissions;
   try {
-    const raw = calendarData.submissionCalendar;
+    const raw =
+      calendarData?.data?.matchedUser?.userCalendar?.submissionCalendar;
     const calendar: Record<string, number> =
       typeof raw === "string" ? JSON.parse(raw) : (raw ?? {});
     if (Object.keys(calendar).length > 0)
@@ -63,14 +110,11 @@ export async function fetchLeetCode(): Promise<LeetCodeData> {
   }
 
   return {
-    ranking: profile.ranking ?? 0,
-    totalSolved: solved.solvedProblem ?? 0,
-    easy: { solved: solved.easySolved ?? 0, total: solved.totalEasy ?? 944 },
-    medium: {
-      solved: solved.mediumSolved ?? 0,
-      total: solved.totalMedium ?? 2057,
-    },
-    hard: { solved: solved.hardSolved ?? 0, total: solved.totalHard ?? 934 },
+    ranking: user?.profile?.ranking ?? 0,
+    totalSolved: getCount("All"),
+    easy: { solved: getCount("Easy"), total: getTotal("Easy") },
+    medium: { solved: getCount("Medium"), total: getTotal("Medium") },
+    hard: { solved: getCount("Hard"), total: getTotal("Hard") },
     streak: 0,
     submissions,
   };

@@ -41,7 +41,7 @@ export function LeetCodePanel({ data }: { data: LeetCodeData }) {
         </div>
         <div className="text-right shrink-0">
           <p className="font-mono font-bold text-[20px] text-accent-yellow m-0 leading-none">
-            #Top
+            #{data.ranking > 0 ? data.ranking.toLocaleString() : "-"}
           </p>
           <p className="font-mono text-[8px] text-muted tracking-[1px] m-0 uppercase">
             RANKING
