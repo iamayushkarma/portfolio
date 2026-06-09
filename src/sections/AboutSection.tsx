@@ -174,7 +174,7 @@ export default function AboutSection() {
               About Myself
             </p>
             <p className="font-sans text-sm md:text-base leading-relaxed text-white/80 flex-1">
-              Full-stack dev who ships things that work — AI resume scorers,
+              Full-stack dev who ships things that work - AI resume scorers,
               aviation platforms with real payment flows. Clean React +
               TypeScript on the frontend, wired to Node.js backends. Strong DSA
               fundamentals, ships fast and always leaves the project better than
