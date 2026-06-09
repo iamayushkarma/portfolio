@@ -3,7 +3,7 @@ import { motion, type Transition } from "motion/react";
 import { GitHubPanel } from "./GitHubPanel";
 import { LeetCodePanel } from "./LeetCodePanel";
 import { fetchGitHub, ghFallback } from "../../../lib/fetchGitHub";
-import { fetchLeetCode, mockLeetCode } from "../../../lib/fetchLeetCode";
+import { fetchLeetCode } from "../../../lib/fetchLeetCode";
 import type {
   GitHubData,
   LeetCodeData,
