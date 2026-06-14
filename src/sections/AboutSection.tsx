@@ -54,52 +54,47 @@ export default function AboutSection() {
             </p>
           </motion.div>
 
-          {/* B - Open to Work */}
           <motion.div
             {...fadeUp(0.15)}
             className={`
-              ${cardBase}
-              lg:col-start-4 lg:col-span-3
-              lg:row-start-1 lg:row-span-2
-              bg-accent-blue text-white
-              justify-between
-            `}
+            ${cardBase}
+            lg:col-start-4 lg:col-span-3
+            lg:row-start-1 lg:row-span-2
+            bg-accent-blue text-white
+          `}
           >
-            <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-40">
-              Status
+            <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-40 mb-2">
+              Beyond the Code
             </p>
-            <div>
-              <p className="font-sans font-bold text-base flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-accent-green border border-white/30 inline-block animate-pulse" />
-                Open for Work
-              </p>
-              <p className="font-sans text-sm text-white/60 mt-1">
-                Internships · Freelance · Full-time
-              </p>
-            </div>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="flex items-center gap-1.5 font-sans font-bold text-sm text-white uppercase tracking-widest cursor-pointer group w-fit bg-transparent border-none p-0"
-            >
-              <span>Let's Talk</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </button>
-          </motion.div>
 
+            <ul className="space-y-1.5 list-disc pl-4">
+              <li className="font-sans text-sm text-white/80">
+                Learning is one of my favorite hobbies
+              </li>
+
+              <li className="font-sans text-sm text-white/80">
+                Discovering what to learn next is another one
+              </li>
+
+              <li className="font-sans text-sm text-white/80">
+                Creating things from scratch never gets old
+              </li>
+
+              <li className="font-sans text-sm text-white/80">
+                I never say no to a game of football
+              </li>
+            </ul>
+          </motion.div>
           {/* C - Daily Stack */}
           <motion.div
             {...fadeUp(0.2)}
             className={`
-              ${cardBase}
-              lg:col-start-7 lg:col-span-3
-              lg:row-start-1 lg:row-span-2
-              bg-cream
-              min-h-[260px] lg:min-h-0
-            `}
+    ${cardBase}
+    lg:col-start-7 lg:col-span-3
+    lg:row-start-1 lg:row-span-2
+    bg-cream
+    min-h-[260px] lg:min-h-0
+  `}
           >
             <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-3">
               Daily Stack
@@ -109,19 +104,19 @@ export default function AboutSection() {
                 <div
                   key={s.abbr}
                   title={s.label}
-                  className="aspect-square rounded-xl border-2 border-ink overflow-hidden hover:bg-ink transition-colors cursor-default group flex items-center justify-center"
+                  className="aspect-square rounded-xl border-2 border-ink hover:bg-ink overflow-hidden transition-colors cursor-default group flex items-center justify-center"
                 >
                   <img
                     src={s.icon}
                     alt={s.label}
-                    className="size-7 object-contain"
+                    className={`size-7 object-contain ${s.dark ? "group-hover:invert" : ""}`}
                   />
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* D - Certificates */}
+          {/* D - Me as a Person */}
           <motion.div
             {...fadeUp(0.25)}
             className={`
@@ -129,33 +124,19 @@ export default function AboutSection() {
               lg:col-start-10 lg:col-span-3
               lg:row-start-1 lg:row-span-3
               bg-ink text-white
-              justify-between
+              justify-start      ← to this
               min-h-[240px] lg:min-h-0
             `}
           >
             <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-40 mb-3">
-              Certifications
+              Me as a Person
             </p>
-            <ul className="space-y-3 flex-1">
-              {certs.map((c) => (
-                <li key={c.title} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-accent-green/20 border border-accent-green/40 flex items-center justify-center flex-shrink-0">
-                    <Check
-                      className="text-accent-green w-4 h-4"
-                      strokeWidth={3}
-                    />
-                  </div>
-                  <div>
-                    <p className="font-sans text-sm font-bold leading-tight">
-                      {c.title}
-                    </p>
-                    <p className="font-sans text-xs text-white/40 mt-0.5">
-                      {c.sub}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <p className="font-sans text-sm md:text-base leading-relaxed text-white/80 flex-1">
+              I believe the most interesting version of yourself is always the
+              next one. That means staying curious enough to ask dumb questions,
+              uncomfortable enough to try things that might fail, and consistent
+              enough to show up even when progress feels invisible.
+            </p>
           </motion.div>
 
           {/* E - About Myself */}
@@ -249,7 +230,7 @@ export default function AboutSection() {
               ${cardBase}
               lg:col-start-10 lg:col-span-3
               lg:row-start-4 lg:row-span-1
-              bg-ink text-white
+              bg-accent-green text-black
               justify-between
             `}
           >
@@ -275,7 +256,7 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* G - Location */}
+          {/* G - Certifications */}
           <motion.div
             {...fadeUp(0.45)}
             className={`
@@ -286,20 +267,26 @@ export default function AboutSection() {
               justify-between
             `}
           >
-            <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60">
-              Location
+            <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60 mb-3">
+              Certifications
             </p>
-            <div>
-              <p className="font-sans font-black text-3xl leading-none tracking-tighter">
-                Indore
-              </p>
-              <p className="font-sans text-sm opacity-60 mt-1">
-                Madhya Pradesh, India
-              </p>
-              <p className="font-sans text-xs opacity-40 mt-1">
-                Available Remote 🌍
-              </p>
-            </div>
+            <ul className="space-y-3 flex-1">
+              {certs.map((c) => (
+                <li key={c.title} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-ink/10 border border-ink/20 flex items-center justify-center flex-shrink-0">
+                    <Check className="text-ink w-4 h-4" strokeWidth={3} />
+                  </div>
+                  <div>
+                    <p className="font-sans text-sm font-bold leading-tight">
+                      {c.title}
+                    </p>
+                    <p className="font-sans text-xs opacity-40 mt-0.5">
+                      {c.sub}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* H - Connect */}
