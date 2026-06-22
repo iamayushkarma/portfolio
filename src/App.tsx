@@ -8,8 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 const App = () => {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+      const moveX = (e.clientX - window.innerWidth / 2) * 0.007;
+      const moveY = (e.clientY - window.innerHeight / 2) * 0.007;
       document.body.style.backgroundPosition = `${moveX}px ${moveY}px, ${moveX}px ${moveY}px, ${moveX}px ${moveY}px`;
     };
 
