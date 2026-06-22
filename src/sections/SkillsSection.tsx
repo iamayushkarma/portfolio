@@ -9,6 +9,7 @@ const fadeUp = (delay: number) => ({
   viewport: { once: true, amount: 0.15 },
   transition: { duration: 0.5, ease: "easeOut", delay } as Transition,
 });
+
 const MINIMAL_CSS = `
   .skills-arena {
     background-image: radial-gradient(circle at 1px 1px, rgba(150,150,150,0.18) 1px, transparent 0);
@@ -32,6 +33,7 @@ export default function SkillsBubbles() {
   const rafRef = useRef<number>(0);
   const styleRef = useRef<HTMLStyleElement | null>(null);
   const linkRef = useRef<HTMLLinkElement | null>(null);
+  const nudgeActiveRef = useRef(false);
   const dragRef = useRef<{
     bubble: Bubble;
     lastX: number;
@@ -76,7 +78,6 @@ export default function SkillsBubbles() {
       const iconSize = Math.max(16, Math.round(b.scaledR * 0.55));
       const labelSize = Math.max(7, Math.round(b.scaledR * 0.17));
 
-      // Tailwind classes for layout/interaction; color applied via inline style
       el.className =
         "sk-bubble absolute rounded-full flex flex-col items-center justify-center cursor-grab select-none p-1.5 pointer-events-auto shadow-[3px_3px_0_#111] hover:shadow-[5px_5px_0_#111] transition-shadow duration-[120ms] ease-in-out";
       el.style.cssText = `width:${d}px;height:${d}px;${COL_STYLES[b.col] ?? COL_STYLES.gray}`;
@@ -112,7 +113,6 @@ export default function SkillsBubbles() {
         b.vy = 0;
         b._lvx = 0;
         b._lvy = 0;
-        // swap grab → grabbing, reduce shadow
         el.classList.remove("cursor-grab", "shadow-[3px_3px_0_#111]");
         el.classList.add(
           "cursor-grabbing",
@@ -209,13 +209,13 @@ export default function SkillsBubbles() {
     const arena = arenaRef.current;
     if (!arena) return;
     const GRAVITY = 0.022;
-    const DAMPING = 0.8;
 
     const tick = () => {
       const W = arena.offsetWidth;
       const H = arena.offsetHeight;
       const CX = W / 2,
         CY = H / 2;
+      const DAMPING = nudgeActiveRef.current ? 0.96 : 0.8;
 
       bubblesRef.current.forEach((b) => {
         if (b.pinned) return;
@@ -280,8 +280,37 @@ export default function SkillsBubbles() {
     mountBubbles();
     startLoop();
 
+    const arena = arenaRef.current;
+    let observer: IntersectionObserver | null = null;
+
+    if (arena) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            nudgeActiveRef.current = true;
+
+            bubblesRef.current.forEach((b) => {
+              if (!b.pinned) {
+                b.vx = (Math.random() - 0.5) * 10;
+                b.vy = (Math.random() - 0.5) * 10;
+              }
+            });
+
+            setTimeout(() => {
+              nudgeActiveRef.current = false;
+            }, 3500);
+
+            observer?.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      observer.observe(arena);
+    }
+
     return () => {
       cancelAnimationFrame(rafRef.current);
+      observer?.disconnect();
       if (styleRef.current) document.head.removeChild(styleRef.current);
       if (linkRef.current) document.head.removeChild(linkRef.current);
     };
@@ -292,7 +321,6 @@ export default function SkillsBubbles() {
       id="skills"
       className="w-full px-4 py-8 md:mt-20 mt-10 scroll-mt-7 md:scroll-mt-11"
     >
-      {/* Header */}
       <motion.div
         {...fadeUp(0.05)}
         className="flex items-end md:justify-center justify-start gap-4 mb-6"
@@ -302,14 +330,12 @@ export default function SkillsBubbles() {
         </h2>
       </motion.div>
 
-      {/* Physics arena */}
       <motion.div
         {...fadeUp(0.15)}
         ref={arenaRef}
         className="skills-arena w-full h-110 sm:h-123 relative overflow-hidden rounded-2xl bg-transparent select-none touch-none"
       />
 
-      {/* Hint */}
       <motion.p
         {...fadeUp(0.25)}
         className="text-[0.7rem] opacity-40 text-right mt-2.5"
