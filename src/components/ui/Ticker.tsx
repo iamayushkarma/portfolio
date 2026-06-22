@@ -43,7 +43,7 @@ function Ticker() {
       <div
         ref={tickerRef}
         className="flex w-max"
-        style={{ animation: "ticker 50s linear infinite" }}
+        style={{ animation: "ticker 150s linear infinite" }}
       >
         {strip}
         {strip}
