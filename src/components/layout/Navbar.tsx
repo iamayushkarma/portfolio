@@ -42,7 +42,7 @@ function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.4 }}
         >
-          <div className="w-8.5 md:w-12 cursor-pointer">
+          <div className="w-8 md:w-9 cursor-pointer">
             <img src={NavLogo} alt="nav-bar-logo" />
           </div>
         </motion.a>
