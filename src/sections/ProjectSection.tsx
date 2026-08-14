@@ -60,13 +60,6 @@ function ProjectCard({ project }: { project: Project }) {
           <span
             key={t.label}
             className={`rounded-[2px] border-2 px-2.5 py-1 font-mono text-[9.5px] font-semibold uppercase tracking-wider ${tagStyles[t.variant]}`}
-            style={
-              t.variant === "building"
-                ? {
-                    animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                  }
-                : undefined
-            }
           >
             {t.label}
           </span>
