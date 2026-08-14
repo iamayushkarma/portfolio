@@ -7,7 +7,7 @@ const col1: Project[] = [
     title: "HookLens",
     subtitle: "Webhook Inspector & Debugger",
     tags: [
-      { label: "Building", variant: "building" },
+      { label: "Webhook", variant: "building" },
       { label: "SaaS", variant: "dark" },
     ],
     desc: "Multi tenant webhook inspector with live request capture, replay engine, and AI-powered payload explanations via Groq. Real time updates via Socket.io zero page refresh.",
@@ -25,9 +25,15 @@ const col1: Project[] = [
     ],
     links: [
       {
+        label: "Live Demo",
+        href: "https://tryhooklens.vercel.app",
+        variant: "blue",
+      },
+      {
         label: "GitHub",
         href: "https://github.com/iamayushkarma/hooklens",
         variant: "dark",
+        ghost: true,
       },
     ],
   },
