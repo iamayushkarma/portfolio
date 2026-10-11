@@ -39,6 +39,7 @@ export default function AboutSection() {
             <p className="font-sans font-bold text-xs uppercase tracking-widest opacity-60">
               Full-Stack Developer
             </p>
+
             <div>
               <h3 className="font-sans font-black text-[2.8rem] md:text-5xl leading-none tracking-tighter">
                 AYUSH
@@ -47,8 +48,9 @@ export default function AboutSection() {
                 KARMA
               </h3>
             </div>
+
             <p className="font-sans text-xs mt-2 opacity-70 leading-relaxed">
-              Indore, MP · BCA '26
+              Indore, MP
               <br />
               ayushkarma.dev@gmail.com
             </p>
@@ -77,7 +79,7 @@ export default function AboutSection() {
               </li>
 
               <li className="font-sans text-sm text-white/80">
-                Creating things from scratch never gets old
+                My most mornings start with a run.
               </li>
 
               <li className="font-sans text-sm text-white/80">
