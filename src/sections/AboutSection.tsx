@@ -313,7 +313,7 @@ export default function AboutSection() {
                 together.
               </p>
               <p className="font-sans text-sm opacity-60 mt-2">
-                Open to internships, freelance & collabs
+                Open to freelance work & collabs
               </p>
             </div>
             <button

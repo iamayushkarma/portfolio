@@ -51,7 +51,7 @@ function HeroSection() {
             shadow-brutal
           "
         >
-          I build things for the web that work, and keep working{" "}
+          I build things for the web that work, and keep working.{" "}
           <br className="hidden sm:block" />
           <span className="font-bold block sm:inline mt-1 sm:mt-0">
             Full-Stack · React · TypeScript · Node.js
