@@ -53,12 +53,12 @@ export default function ContactSection() {
             className="flex flex-col justify-between p-6 md:p-11 border-b-2 md:border-b-0 md:border-r-2 border-ink"
           >
             <div>
-              <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[2.7rem] md:text-5xl lg:text-6xl">
-                Got A
+              <h2 className="font-sans font-black uppercase leading-none tracking-[-0.03em] text-ink mb-5 text-[2.5rem] md:text-[3rem] lg:text-[3.65rem]">
+                Something
                 <br />
-                Role
+                On Your
                 <br />
-                For Me?
+                Mind?
               </h2>
               <p className="font-sans text-[13px] leading-[1.8] text-charcoal">
                 Have something interesting in mind? Tell me about it and let's
