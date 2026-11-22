@@ -18,7 +18,7 @@ function StatCard({
 }) {
   const isLong = value.length > 6;
   return (
-    <div className="p-3 border border-[#1e3a28] bg-[#0d1a11]">
+    <div className="p-3 border rounded-md border-[#1e3a28] bg-[#0d1a11]">
       <p className="font-mono text-[8px] tracking-[1.5px] uppercase text-[#4a9a5a] mb-1">
         {label}
       </p>
