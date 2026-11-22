@@ -63,7 +63,7 @@ export default function CodingStats() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {/* GitHub */}
-          <motion.div {...fadeUp(0.15)}>
+          <motion.div {...fadeUp(0.15)} className="flex flex-col">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded-[4px] bg-accent-green flex items-center justify-center shrink-0">
                 <FaGithub size={14} color="#0a0f0b" />
@@ -76,7 +76,7 @@ export default function CodingStats() {
           </motion.div>
 
           {/* LeetCode */}
-          <motion.div {...fadeUp(0.25)}>
+          <motion.div {...fadeUp(0.15)} className="flex flex-col">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded-[4px] bg-accent-yellow flex items-center justify-center shrink-0">
                 <SiLeetcode size={14} color="#0a0f0b" />

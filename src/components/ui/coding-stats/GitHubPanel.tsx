@@ -14,7 +14,7 @@ export function GitHubPanel({ data }: { data: GitHubData }) {
     `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`;
 
   return (
-    <div className="bg-[#111613] border border-[#1e3a28] rounded-lg p-5">
+    <div className="bg-[#111613] border border-[#1e3a28] rounded-lg p-5 h-full flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between mb-5">
         <div className="flex items-center gap-3">
@@ -96,7 +96,7 @@ export function GitHubPanel({ data }: { data: GitHubData }) {
       </div>
 
       {/* Contribution graph */}
-      <div className="border border-[#1e3a28] rounded-md px-[14px] py-[10px] mb-[14px]">
+      <div className="border border-[#1e3a28] rounded-md px-[14px] py-[10px] mb-[14px] flex-1">
         <SectionLabel left="MATRIX_OUTPUT" right="LOADED" />
         <ContributionGraph
           weeks={data.weeks}
@@ -106,11 +106,13 @@ export function GitHubPanel({ data }: { data: GitHubData }) {
         />
       </div>
 
-      <CmdBar
-        cmd="gh --stats"
-        label="VIEW_GH →"
-        href={`https://github.com/${GH_USERNAME}`}
-      />
+      <div className="mt-auto">
+        <CmdBar
+          cmd="gh --stats"
+          label="VIEW_GH →"
+          href={`https://github.com/${GH_USERNAME}`}
+        />
+      </div>
     </div>
   );
 }

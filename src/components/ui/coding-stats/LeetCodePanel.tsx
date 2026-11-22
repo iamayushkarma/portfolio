@@ -21,7 +21,7 @@ export function LeetCodePanel({ data }: { data: LeetCodeData }) {
     `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`;
 
   return (
-    <div className="bg-[#111613] border border-[#1e3a28] rounded-lg p-5">
+    <div className="bg-[#111613] border border-[#1e3a28] rounded-lg p-5 h-full flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between mb-5">
         <div className="flex items-center gap-3">
@@ -102,7 +102,7 @@ export function LeetCodePanel({ data }: { data: LeetCodeData }) {
       </div>
 
       {/* Stats + bars */}
-      <div className="border border-[#1e3a28] rounded-md px-[18px] py-4 mb-[14px]">
+      <div className="border border-[#1e3a28] rounded-md px-[18px] py-4 mb-[14px] flex-1">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-[#2b2200] border-2 border-accent-yellow flex items-center justify-center shrink-0">
@@ -148,24 +148,31 @@ export function LeetCodePanel({ data }: { data: LeetCodeData }) {
         </div>
 
         <div className="mt-4">
-          <p className="font-mono text-[11px] text-muted mb-2">
-            Heatmap (Last 52 Weeks)
-          </p>
+          <div className="flex items-center justify-between mb-2">
+            <p className="font-mono text-[11px] text-muted m-0">
+              Heatmap (Last 52 Weeks)
+            </p>
+            <p className="font-mono text-[9px] text-muted m-0">
+              {fmt(yearAgo)} → {fmt(now)}
+            </p>
+          </div>
           <ContributionGraph
             weeks={lcWeeks}
             palette={LC_COLORS}
-            startLabel={fmt(yearAgo)}
-            endLabel={fmt(now)}
+            startLabel=""
+            endLabel=""
           />
         </div>
       </div>
 
-      <CmdBar
-        cmd="leetcode --u"
-        label="VIEW_LC →"
-        href={`https://leetcode.com/u/${LC_USERNAME}`}
-        accentColor="#e8a800"
-      />
+      <div className="mt-auto">
+        <CmdBar
+          cmd="leetcode --u"
+          label="VIEW_LC →"
+          href={`https://leetcode.com/u/${LC_USERNAME}`}
+          accentColor="#e8a800"
+        />
+      </div>
     </div>
   );
 }
