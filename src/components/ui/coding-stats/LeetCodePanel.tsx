@@ -21,7 +21,11 @@ export function LeetCodePanel({ data }: { data: LeetCodeData }) {
   const yearAgo = new Date(now);
   yearAgo.setFullYear(now.getFullYear() - 1);
   const fmt = (d: Date) =>
-    `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`;
+    d.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
 
   return (
     <div className="bg-[#111613] border border-[#1e3a28] rounded-lg p-5 h-full flex flex-col">
