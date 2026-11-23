@@ -11,8 +11,8 @@ export function GitHubPanel({ data }: { data: GitHubData }) {
   const now = new Date();
   const yearAgo = new Date(now);
   yearAgo.setFullYear(now.getFullYear() - 1);
-  const fmt = (d: Date) =>
-    `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`;
+ const fmt = (d: Date) =>
+  `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
   const ghDays = trimToToday(data.weeks.flat()).map((d) => d.count);
   const { current, longest } = calcStreaks(ghDays);
 
